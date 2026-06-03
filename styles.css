@@ -510,6 +510,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 .program--robotics { border-left-color: var(--robotics); }
 .program--ai { border-left-color: var(--ai); }
 .program--health { border-left-color: var(--health); }
+.program--leadership { border-left-color: var(--leadership); }
 .program h3 { margin-bottom: .3rem; }
 .program__tag { color: var(--accent-dk); font-weight: 600; font-size: .88rem; margin-bottom: .8rem; }
 .program ul { font-size: .9rem; color: var(--muted); flex: 1; margin: 0 0 1.2rem; }
