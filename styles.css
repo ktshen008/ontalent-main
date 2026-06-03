@@ -416,7 +416,30 @@ h4 { font-size: 1rem; letter-spacing: .02em; }
 
 /* ---------- Logo wall ---------- */
 .logo-wall { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); }
-.logo-chip { background: var(--card); border: 1px solid var(--line-2); border-radius: var(--r-sm); padding: 22px 16px; text-align: center; font-weight: 600; color: var(--brand); }
+.logo-chip {
+  background: var(--card);
+  border: 1.5px solid var(--line-2);
+  border-radius: var(--r-sm);
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--brand);
+  cursor: default;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.logo-chip:hover {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+/* Chip-specific grid: tighter columns for text-only chips */
+.logo-wall--chips { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+/* Sub-group label within a supporters-group */
+.chip-group { margin-top: 1.4rem; }
+.chip-group__label { font-size: .7rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: .65rem; }
 
 /* Real logo tiles */
 .logo-tile {
