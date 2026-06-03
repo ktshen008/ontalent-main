@@ -168,10 +168,10 @@ h4 { font-size: 1rem; letter-spacing: .02em; }
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 24px;
 }
-.brand { display: inline-flex; align-items: center; gap: .55em; font-weight: 700; }
-.brand__mark { width: 30px; height: 30px; }
-.brand__word { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; color: var(--ink); letter-spacing: -0.01em; }
-.brand:hover .brand__word { color: var(--ink); }
+.brand { display: inline-flex; align-items: center; font-weight: 700; }
+.brand__logo { height: 38px; width: auto; display: block; }
+.site-footer .brand__logo { height: 34px; }
+@media (max-width: 480px) { .brand__logo { height: 32px; } }
 
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav__link {
@@ -487,7 +487,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 /* ---------- Footer ---------- */
 .site-footer { background: var(--brand-deep); color: var(--on-dark); padding-block: clamp(48px, 7vw, 80px); }
 .site-footer__top { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
-.site-footer .brand__word { color: #fff; }
+/* .brand__word removed — replaced by .brand__logo */
 .site-footer__about { color: var(--on-dark-mut); font-size: .92rem; margin-top: 1rem; max-width: 32ch; }
 .fcol h4 { color: #fff; margin-bottom: 1rem; font-family: var(--font-sans); font-weight: 600; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
 .fcol ul { list-style: none; padding: 0; margin: 0; }
