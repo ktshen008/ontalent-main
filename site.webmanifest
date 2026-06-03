@@ -1,0 +1,1 @@
+{ "name":"OnTalent", "short_name":"OnTalent", "icons":[ {"src":"./favicon-192.png","sizes":"192x192","type":"image/png"}, {"src":"./favicon-512.png","sizes":"512x512","type":"image/png"} ], "theme_color":"#2b214a", "background_color":"#FBF7F0", "display":"standalone" }
