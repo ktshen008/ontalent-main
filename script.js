@@ -101,6 +101,118 @@
 
   /* ---- Respect reduced motion ---- */
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduceMotionQuery = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ---- Home hero page-motion animation ---- */
+  function drawStar(context, x, y, radius, color) {
+    var inner = radius * 0.44;
+    context.beginPath();
+    for (var i = 0; i < 10; i += 1) {
+      var angle = -Math.PI / 2 + (i * Math.PI) / 5;
+      var length = i % 2 === 0 ? radius : inner;
+      var px = x + Math.cos(angle) * length;
+      var py = y + Math.sin(angle) * length;
+      if (i === 0) context.moveTo(px, py);
+      else context.lineTo(px, py);
+    }
+    context.closePath();
+    context.fillStyle = color;
+    context.fill();
+  }
+
+  function createHeroNetwork(canvas) {
+    var context = canvas.getContext("2d");
+    if (!context) return null;
+
+    var palette = ["#FF6A4D", "#F25C54", "#199FB0", "#2F9E68", "#E0A12E", "#7A5CD0", "#F2EEF8"];
+    var frame;
+    var particles = [];
+
+    function resize() {
+      var ratio = window.devicePixelRatio || 1;
+      var rect = canvas.getBoundingClientRect();
+      canvas.width = Math.floor(rect.width * ratio);
+      canvas.height = Math.floor(rect.height * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+      var count = Math.min(58, Math.max(28, Math.floor(rect.width / 25)));
+      particles = Array.from({ length: count }, function (_, index) {
+        return {
+          x: Math.random() * rect.width,
+          y: Math.random() * rect.height,
+          vx: (Math.random() - .5) * .16,
+          vy: (Math.random() - .5) * .16,
+          radius: Math.random() * 2.4 + 1.8,
+          color: palette[index % palette.length],
+          shape: index % 11 === 0 ? "star" : "dot"
+        };
+      });
+    }
+
+    function draw() {
+      var width = canvas.clientWidth;
+      var height = canvas.clientHeight;
+      var isReduced = reduceMotionQuery && reduceMotionQuery.matches;
+
+      context.clearRect(0, 0, width, height);
+
+      if (!isReduced) {
+        particles.forEach(function (point) {
+          point.x += point.vx;
+          point.y += point.vy;
+          if (point.x < 0 || point.x > width) point.vx *= -1;
+          if (point.y < 0 || point.y > height) point.vy *= -1;
+        });
+      }
+
+      for (var i = 0; i < particles.length; i += 1) {
+        for (var j = i + 1; j < particles.length; j += 1) {
+          var a = particles[i];
+          var b = particles[j];
+          var dx = a.x - b.x;
+          var dy = a.y - b.y;
+          var distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 170) {
+            context.beginPath();
+            context.moveTo(a.x, a.y);
+            context.lineTo(b.x, b.y);
+            context.strokeStyle = "rgba(242, 238, 248, " + (0.2 * (1 - distance / 170)) + ")";
+            context.lineWidth = 1.15;
+            context.stroke();
+          }
+        }
+      }
+
+      particles.forEach(function (point, index) {
+        context.globalAlpha = index % 5 === 0 ? .72 : .56;
+        if (point.shape === "star") drawStar(context, point.x, point.y, point.radius * 3.8, point.color);
+        else {
+          context.beginPath();
+          context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+          context.fillStyle = point.color;
+          context.fill();
+        }
+        context.globalAlpha = 1;
+      });
+
+      if (!isReduced) frame = requestAnimationFrame(draw);
+    }
+
+    function restart() {
+      cancelAnimationFrame(frame);
+      resize();
+      draw();
+    }
+
+    restart();
+    return restart;
+  }
+
+  var heroNetwork = document.querySelector(".hero__network");
+  var restartHeroNetwork = heroNetwork ? createHeroNetwork(heroNetwork) : null;
+  if (restartHeroNetwork) {
+    window.addEventListener("resize", restartHeroNetwork);
+  }
 
   /* ---- Scroll reveal ---- */
   var reveals = document.querySelectorAll("[data-reveal]");

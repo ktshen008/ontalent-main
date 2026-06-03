@@ -243,7 +243,16 @@ h4 { font-size: 1rem; letter-spacing: .02em; }
   background: radial-gradient(circle, rgba(255,106,77,.42), transparent 62%);
   filter: blur(8px);
 }
-.hero__inner { max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
+.hero__network {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: .96;
+  pointer-events: none;
+}
+.hero__inner { position: relative; z-index: 1; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
 .hero__title { color: #fff; max-width: 16ch; }
 .hero__title em { font-style: italic; color: var(--accent); }
 .hero__lede { color: var(--on-dark-mut); max-width: 54ch; margin-top: 1.1rem; font-size: clamp(1.05rem,1.6vw,1.25rem); }
