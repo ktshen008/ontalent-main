@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">OnTalent Youth Innovation Network</title>
+  <desc id="desc">Social preview graphic for the OnTalent innovation-network website concept.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f6f7f2"/>
+      <stop offset="0.52" stop-color="#e9f0ef"/>
+      <stop offset="1" stop-color="#dfeaf0"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" x2="1">
+      <stop offset="0" stop-color="#007f7a"/>
+      <stop offset="1" stop-color="#2569a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="990" cy="110" r="210" fill="#d59a20" opacity="0.14"/>
+  <circle cx="180" cy="130" r="250" fill="#007f7a" opacity="0.13"/>
+  <g fill="none" stroke-linecap="round" stroke-width="3" opacity="0.42">
+    <path d="M760 320 C845 215 930 170 1015 145" stroke="#007f7a" stroke-dasharray="12 16"/>
+    <path d="M760 320 C890 310 980 365 1070 450" stroke="#2569a8" stroke-dasharray="12 16"/>
+    <path d="M760 320 C720 220 700 145 690 80" stroke="#d59a20" stroke-dasharray="12 16"/>
+    <path d="M760 320 C690 390 610 460 540 520" stroke="#df5f45" stroke-dasharray="12 16"/>
+  </g>
+  <g>
+    <rect x="74" y="78" width="86" height="86" rx="18" fill="url(#mark)"/>
+    <text x="117" y="132" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">OT</text>
+  </g>
+  <text x="74" y="236" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#007f7a">YOUTH INNOVATION NETWORK</text>
+  <text x="74" y="325" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="800" fill="#14201f">OnTalent</text>
+  <text x="74" y="405" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700" fill="#14201f">Innovators. Leaders. Creators.</text>
+  <text x="76" y="472" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="500" fill="#5f6f6b">STEM, robotics, AI, medicine, leadership, and entrepreneurship.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">
+    <circle cx="760" cy="320" r="58" fill="#14201f"/>
+    <text x="760" y="327" text-anchor="middle" fill="#fff">Network</text>
+    <rect x="960" y="112" width="128" height="48" rx="14" fill="#fff" stroke="#d7ded9"/>
+    <text x="1024" y="143" text-anchor="middle" fill="#14201f">Mentors</text>
+    <rect x="1008" y="430" width="118" height="48" rx="14" fill="#fff" stroke="#d7ded9"/>
+    <text x="1067" y="461" text-anchor="middle" fill="#14201f">Impact</text>
+    <rect x="632" y="52" width="118" height="48" rx="14" fill="#fff" stroke="#d7ded9"/>
+    <text x="691" y="83" text-anchor="middle" fill="#14201f">Chapters</text>
+    <rect x="468" y="494" width="138" height="48" rx="14" fill="#fff" stroke="#d7ded9"/>
+    <text x="537" y="525" text-anchor="middle" fill="#14201f">Pathways</text>
+  </g>
+</svg>
