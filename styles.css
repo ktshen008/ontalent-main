@@ -127,6 +127,10 @@ h4 { font-size: 1rem; letter-spacing: .02em; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+/* Mission / Vision / Values: 2-up top row, Values full-width below */
+.grid--mvv { grid-template-columns: 1fr 1fr; }
+.grid--mvv > :last-child { grid-column: 1 / -1; }
+@media (max-width: 600px) { .grid--mvv { grid-template-columns: 1fr; } .grid--mvv > :last-child { grid-column: auto; } }
 
 /* ---------- Buttons ---------- */
 .btn {
