@@ -157,6 +157,15 @@ h4 { font-size: 1rem; letter-spacing: .02em; }
 .btn-row.center { justify-content: center; }
 
 /* ---------- Header / Nav ---------- */
+.preview-banner {
+  background: var(--brand-deep);
+  color: var(--on-dark);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  padding: .65rem 24px;
+  text-align: center;
+  font-size: .9rem;
+  font-weight: 600;
+}
 .site-header {
   position: sticky; top: 0; z-index: 50;
   background: rgba(251,247,240,.82);
