@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pool your robotics team's goBILDA parts into one combined OnTalent group order — choose pickup or shipping and submit before the cutoff.">
+  <meta property="og:title" content="goBILDA Group Order | OnTalent">
+  <meta property="og:description" content="Pool your robotics team's goBILDA parts into one combined OnTalent group order — choose pickup or shipping and submit before the cutoff.">
+  <meta property="og:image" content="https://ktshen008.github.io/ontalent-main/social-preview.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2b214a">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="./favicon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./styles.css?v=20260604">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>goBILDA Group Order | OnTalent</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="./index.html" aria-label="OnTalent home">
+      <img src="./assets/images/logo-header-violet.png" alt="OnTalent" class="brand__logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    <nav class="nav" id="site-nav">
+      <a class="nav__link" href="./index.html">Home</a>
+      <a class="nav__link" href="./pathways.html">Pathways</a>
+      <a class="nav__link" href="./network.html">Network</a>
+      <a class="nav__link" href="./experiences.html">Experiences</a>
+      <a class="nav__link" href="./impact.html">Impact</a>
+      <a class="nav__link" href="./about.html">About</a>
+      <a class="nav__link" href="./join.html">Join</a>
+      <a class="nav__link nav__cta btn btn--primary btn--sm" href="./join-students-families.html">Register</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__tag" data-reveal>Robotics families &amp; teams</span>
+    <h1 class="page-hero__title" data-reveal data-delay="1">goBILDA <em>Group Order</em></h1>
+    <p class="page-hero__lede" data-reveal data-delay="1">Pool your team's goBILDA parts into one combined order through OnTalent. Add your items below, choose pickup or shipping, and submit before the cutoff. goBILDA® is referenced by name only — OnTalent coordinates the group order.</p>
+    <div class="go-specs" id="go-specStrip" data-reveal data-delay="2"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="go-wrap">
+
+    <!-- Honeypot (hidden from users and assistive tech) -->
+    <input type="text" id="go-company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+    <div class="go-errors" id="go-errors" role="alert"><strong>Please fix the following:</strong><ul id="go-errorList"></ul></div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">01</span><h2>Who's ordering</h2></div>
+      <div class="go-grid2" style="margin-bottom:16px">
+        <div class="form-field"><label class="go-lbl" for="go-name">Full name <span class="go-req">*</span></label><input class="form-input" id="go-name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="form-field"><label class="go-lbl" for="go-email">Email <span class="go-req">*</span></label><input class="form-input" id="go-email" type="email" placeholder="you@example.com" autocomplete="email"></div>
+      </div>
+      <div class="go-grid2">
+        <div class="form-field"><label class="go-lbl" for="go-phone">Phone</label><input class="form-input" id="go-phone" type="tel" placeholder="Optional" autocomplete="tel"></div>
+        <div class="form-field"><label class="go-lbl" for="go-team">Team / organization</label><input class="form-input" id="go-team" type="text" placeholder="e.g. FTC #12345 / school name"></div>
+      </div>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">02</span><h2>How you'll receive it</h2></div>
+      <div class="go-choice">
+        <label class="go-opt is-sel" id="go-optPickup"><input type="radio" name="fulfillment" value="pickup" checked><span><span class="go-ot">Pickup</span><br><span class="go-od" id="go-pickupDesc">No shipping cost</span></span></label>
+        <label class="go-opt" id="go-optShip"><input type="radio" name="fulfillment" value="ship"><span><span class="go-ot">Ship to me</span><br><span class="go-od" id="go-shipDesc">+ flat shipping</span></span></label>
+      </div>
+      <div id="go-shipFields">
+        <div class="form-field" style="margin-bottom:16px"><label class="go-lbl" for="go-addr">Street address <span class="go-req">*</span></label><input class="form-input" id="go-addr" type="text" placeholder="Street and unit" autocomplete="street-address"></div>
+        <div class="go-grid2" style="margin-bottom:16px">
+          <div class="form-field"><label class="go-lbl" for="go-city">City <span class="go-req">*</span></label><input class="form-input" id="go-city" type="text" autocomplete="address-level2"></div>
+          <div class="form-field"><label class="go-lbl" for="go-prov">Province / state <span class="go-req">*</span></label><input class="form-input" id="go-prov" type="text" autocomplete="address-level1"></div>
+        </div>
+        <div class="form-field" style="max-width:280px"><label class="go-lbl" for="go-postal">Postal / ZIP code <span class="go-req">*</span></label><input class="form-input go-mono" id="go-postal" type="text" placeholder="N6A 1A1" autocomplete="postal-code"></div>
+      </div>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">03</span><h2>Your parts</h2><span class="go-hint">prices in <span id="go-curLabel">USD</span></span></div>
+      <div class="go-line-head">
+        <span>Part #</span><span>Product name</span><span>Qty</span><span>Unit price</span><span>Line total</span><span></span>
+      </div>
+      <div id="go-lines"></div>
+      <button class="go-addbtn" id="go-addBtn" type="button">+ Add another part</button>
+      <p class="go-partnote">Find part numbers and current prices at <a href="https://www.gobilda.com" target="_blank" rel="noopener">gobilda.com</a>. Enter the unit price shown there — e.g. <span class="go-mono">5202-0002-0019 · 5202 Series Yellow Jacket Motor</span>.</p>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">04</span><h2>Notes &amp; order summary</h2></div>
+      <div class="form-field" style="margin-bottom:18px"><label class="go-lbl" for="go-notes">Special requests / notes (optional)</label><textarea class="form-input" id="go-notes" placeholder="Anything the fulfillment team should know — substitutions, urgency, etc."></textarea></div>
+      <div class="go-ledger">
+        <div class="go-lrow"><span>Subtotal</span><span class="go-v" id="go-subtotal">$0.00</span></div>
+        <div class="go-lrow"><span id="go-shipLineLabel">Shipping (pickup)</span><span class="go-v" id="go-shipVal">$0.00</span></div>
+        <div class="go-lrow go-lrow--total"><span>Total</span><span class="go-v" id="go-grandTotal">$0.00</span></div>
+      </div>
+      <div class="go-paynote" id="go-payNote"></div>
+    </div>
+
+    <div id="go-review">
+      <div class="card go-card">
+        <div class="go-sec-head"><span class="go-num">✓</span><h2>Review &amp; submit</h2></div>
+        <div class="go-summary" id="go-summaryBox"></div>
+        <div class="go-review-actions" id="go-reviewActions">
+          <button class="btn btn--primary" id="go-submitBtn" type="button">Submit order to OnTalent</button>
+          <button class="btn btn--ghost" id="go-editBtn" type="button">Keep editing</button>
+          <button class="btn btn--ghost" id="go-emailBtn" type="button">Email instead</button>
+          <button class="btn btn--ghost" id="go-copyBtn" type="button">Copy summary</button>
+        </div>
+        <div id="go-confirmBox" style="display:none"></div>
+        <p class="go-status" id="go-copyStatus"></p>
+      </div>
+    </div>
+
+    <p class="note center mt-1">Submitted to OnTalent · payment collected once the order is confirmed at the cutoff.</p>
+  </div>
+</section>
+
+<div class="go-bar">
+  <div class="go-bar-inner">
+    <div><div class="go-blbl">Order total</div><div class="go-btot" id="go-barTotal">$0.00</div></div>
+    <button class="btn btn--primary" id="go-reviewBtn" type="button">Review order →</button>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div>
+      <a class="brand" href="./index.html" aria-label="OnTalent home"><img src="./assets/images/logo-header-white.png" alt="OnTalent" class="brand__logo"></a>
+      <p class="site-footer__about">A youth innovation ecosystem — robotics, AI, health science, and leadership at OnTalent Lab | Western STEM Studio.</p>
+    </div>
+    <div class="fcol">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="./pathways.html">Pathways</a></li>
+        <li><a href="./experiences-summer-camps.html">Summer Camps</a></li>
+        <li><a href="./experiences.html">Experiences</a></li>
+        <li><a href="./impact.html">Impact &amp; Data</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="./network-western-stem-studio.html">Western STEM Studio</a></li>
+        <li><a href="./network-university-chapters.html">University Involvement</a></li>
+        <li><a href="./network-partners-supporters.html">Partners &amp; Supporters</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="./join-students-families.html">Students &amp; Families</a></li>
+        <li><a href="./join.html#mentors-volunteers">Mentors &amp; Volunteers</a></li>
+        <li><a href="./join-sponsors-supporters.html">Support Us</a></li>
+        <li><a href="./group-order-gobilda.html">goBILDA Group Order</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/ontalent-stemm" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://us14.campaign-archive.com/home/?u=96f01affdb5cc285e50d4a68a&id=27def29310" target="_blank" rel="noopener">Newsletter</a></li>
+        <li><a href="mailto:info@ontalent.org">info@ontalent.org</a></li>
+        <li><a href="./about.html">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <p><strong>Ontario Centre for Talent Development</strong> — operating as OnTalent</p>
+    <p>OnTalent Lab | Western STEM Studio · Western University Discovery Park · 999 Collip Circle, London, ON N6G 0J3, Canada</p>
+    <p>&copy; <span data-year>2026</span> Ontario Centre for Talent Development. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  /* ===========================================================
+     ONTALENT — EDIT THESE SETTINGS FOR EACH GROUP ORDER
+     =========================================================== */
+  const CONFIG = {
+    organizationName: "OnTalent",
+    currency: "USD",                       // currency participants enter prices in
+    currencySymbol: "$",
+    deadline: "Friday, June 20, 2026",     // order cutoff date
+    minimumNote: "$500 group minimum",     // e.g. "20 items" or "$500 minimum"
+    pickupLocation: "OnTalent Lab | Western STEM Studio",
+    shipFee: 12.00,                        // flat estimated shipping charged if shipped
+    organizerEmail: "info@ontalent.org",   // fallback email if submitting is off
+    submitEndpoint: ""                     // <-- paste your Google Apps Script web app URL here
+  };
+  /* =========================================================== */
+
+  const state = [];
+  const $ = id => document.getElementById(id);
+  const money = n => CONFIG.currencySymbol + (Number(n) || 0).toFixed(2);
+  const clampInt = v => { v = parseInt(v, 10); return (isNaN(v) || v < 0) ? 0 : v; };
+  const clampNum = v => { v = parseFloat(v); return (isNaN(v) || v < 0) ? 0 : v; };
+  const fulfillment = () => document.querySelector('input[name="fulfillment"]:checked').value;
+
+  // Config-driven text
+  $('go-curLabel').textContent = CONFIG.currency;
+  $('go-shipDesc').textContent = '+ ' + money(CONFIG.shipFee) + ' flat shipping';
+  $('go-pickupDesc').textContent = CONFIG.pickupLocation;
+  $('go-specStrip').innerHTML =
+    '<div class="go-spec"><b>Cutoff</b><span>' + CONFIG.deadline + '</span></div>' +
+    '<div class="go-spec"><b>Minimum</b><span>' + CONFIG.minimumNote + '</span></div>' +
+    '<div class="go-spec"><b>Pickup or ship</b><span>your choice</span></div>' +
+    '<div class="go-spec"><b>Payment</b><span>once confirmed</span></div>';
+  $('go-payNote').innerHTML = '<strong>Payment:</strong> nothing is charged yet. Once the order reaches its minimum and is confirmed at the cutoff (' + CONFIG.deadline + '), OnTalent will contact you to collect payment before the parts are ordered.';
+
+  function createRow(item){
+    const row = document.createElement('div');
+    row.className = 'go-line';
+
+    function cell(cls, labelText, inputEl){
+      const c = document.createElement('div'); c.className = cls;
+      const lab = document.createElement('span'); lab.className = 'go-cellab'; lab.textContent = labelText;
+      c.appendChild(lab); c.appendChild(inputEl); return c;
+    }
+    function mk(type, val, ph, mono){
+      const i = document.createElement('input'); i.type = type; i.className = 'form-input'; i.value = val;
+      if(ph) i.placeholder = ph;
+      if(mono) i.classList.add('go-mono');
+      if(type === 'number'){ i.min = 0; }
+      return i;
+    }
+
+    const part = mk('text', item.partNo, '5202-…', true);
+    part.setAttribute('aria-label', 'Part number');
+    part.oninput = () => { item.partNo = part.value; };
+
+    const name = mk('text', item.name, 'e.g. Yellow Jacket Motor', false);
+    name.setAttribute('aria-label', 'Product name');
+    name.oninput = () => { item.name = name.value; };
+
+    const qty = mk('number', item.qty || '', '0', true); qty.step = 1; qty.setAttribute('aria-label', 'Quantity');
+    const price = mk('number', item.price || '', '0.00', true); price.step = '0.01'; price.setAttribute('aria-label', 'Unit price');
+
+    const ltot = document.createElement('div'); ltot.className = 'go-ltot'; ltot.textContent = money(item.qty * item.price);
+
+    qty.oninput = () => { item.qty = clampInt(qty.value); ltot.textContent = money(item.qty * item.price); updateTotals(); };
+    price.oninput = () => { item.price = clampNum(price.value); ltot.textContent = money(item.qty * item.price); updateTotals(); };
+
+    const rm = document.createElement('button'); rm.className = 'go-rm'; rm.type = 'button'; rm.innerHTML = '&times;'; rm.setAttribute('aria-label', 'Remove part');
+    rm.onclick = () => { const idx = state.indexOf(item); if(idx > -1) state.splice(idx, 1); row.remove(); updateTotals(); };
+
+    row.appendChild(cell('go-c-part', 'Part #', part));
+    row.appendChild(cell('go-c-name', 'Product name', name));
+    row.appendChild(cell('go-c-qty', 'Qty', qty));
+    row.appendChild(cell('go-c-price', 'Unit price', price));
+    row.appendChild(cell('go-c-tot', 'Line total', ltot));
+    row.appendChild(rm);
+    return { row };
+  }
+
+  function addItem(){
+    const item = { partNo:'', name:'', qty:0, price:0 };
+    state.push(item);
+    const { row } = createRow(item);
+    $('go-lines').appendChild(row);
+  }
+
+  function updateTotals(){
+    const sub = state.reduce((s, it) => s + (it.qty * it.price), 0);
+    const ship = fulfillment() === 'ship' ? CONFIG.shipFee : 0;
+    const total = sub + ship;
+    $('go-subtotal').textContent = money(sub);
+    $('go-shipVal').textContent = money(ship);
+    $('go-shipLineLabel').textContent = fulfillment() === 'ship' ? 'Shipping (flat estimate)' : 'Shipping (pickup)';
+    $('go-grandTotal').textContent = money(total);
+    $('go-barTotal').textContent = money(total);
+  }
+
+  // Fulfillment toggle
+  document.querySelectorAll('input[name="fulfillment"]').forEach(r => {
+    r.onchange = () => {
+      $('go-optPickup').classList.toggle('is-sel', fulfillment() === 'pickup');
+      $('go-optShip').classList.toggle('is-sel', fulfillment() === 'ship');
+      $('go-shipFields').classList.toggle('is-on', fulfillment() === 'ship');
+      updateTotals();
+    };
+  });
+
+  $('go-addBtn').onclick = addItem;
+
+  function validate(){
+    const errors = [];
+    document.querySelectorAll('.form-input--invalid').forEach(e => e.classList.remove('form-input--invalid'));
+    const name = $('go-name'), email = $('go-email');
+    if(!name.value.trim()){ errors.push('Enter your name.'); name.classList.add('form-input--invalid'); }
+    if(!email.value.trim()){ errors.push('Enter your email.'); email.classList.add('form-input--invalid'); }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ errors.push('Enter a valid email address.'); email.classList.add('form-input--invalid'); }
+    const valid = state.filter(it => it.qty > 0 && it.price > 0);
+    if(valid.length === 0){ errors.push('Add at least one part with a quantity and unit price.'); }
+    if(fulfillment() === 'ship'){
+      [['go-addr','street address'],['go-city','city'],['go-prov','province/state'],['go-postal','postal/ZIP code']].forEach(([id, label]) => {
+        if(!$(id).value.trim()){ errors.push('Enter your ' + label + ' for shipping.'); $(id).classList.add('form-input--invalid'); }
+      });
+    }
+    return errors;
+  }
+
+  function buildSummary(){
+    const lines = state.filter(it => it.qty > 0);
+    const sub = lines.reduce((s, it) => s + (it.qty * it.price), 0);
+    const ship = fulfillment() === 'ship' ? CONFIG.shipFee : 0;
+    let out = 'goBILDA GROUP ORDER — ' + CONFIG.organizationName + '\n';
+    out += 'Submitted: ' + new Date().toLocaleString() + '\n';
+    out += '──────────────────────────────\n';
+    out += 'PARTICIPANT\n';
+    out += '  Name:  ' + $('go-name').value.trim() + '\n';
+    out += '  Email: ' + $('go-email').value.trim() + '\n';
+    if($('go-phone').value.trim()) out += '  Phone: ' + $('go-phone').value.trim() + '\n';
+    if($('go-team').value.trim())  out += '  Team:  ' + $('go-team').value.trim() + '\n';
+    out += '\nFULFILLMENT: ' + (fulfillment() === 'ship' ? 'Ship' : 'Pickup') + '\n';
+    if(fulfillment() === 'ship'){
+      out += '  ' + $('go-addr').value.trim() + '\n';
+      out += '  ' + $('go-city').value.trim() + ', ' + $('go-prov').value.trim() + '  ' + $('go-postal').value.trim() + '\n';
+    }
+    out += '\nPARTS (' + CONFIG.currency + ')\n';
+    lines.forEach(it => {
+      out += '  ' + String(it.qty).padStart(3, ' ') + ' x  ' + (it.partNo || '—') + '  |  ' + (it.name || 'unnamed') +
+             '  @ ' + money(it.price) + '  =  ' + money(it.qty * it.price) + '\n';
+    });
+    out += '──────────────────────────────\n';
+    out += '  Subtotal: ' + money(sub) + '\n';
+    out += '  Shipping: ' + money(ship) + (fulfillment() === 'ship' ? ' (flat estimate)' : '') + '\n';
+    out += '  TOTAL:    ' + money(sub + ship) + '\n';
+    if($('go-notes').value.trim()) out += '\nNOTES\n  ' + $('go-notes').value.trim() + '\n';
+    out += '\nPayment collected once the order is confirmed at the cutoff (' + CONFIG.deadline + ').';
+    return out;
+  }
+
+  $('go-reviewBtn').onclick = () => {
+    const errors = validate();
+    const box = $('go-errors');
+    if(errors.length){
+      $('go-errorList').innerHTML = errors.map(e => '<li>' + e + '</li>').join('');
+      box.classList.add('is-on');
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    box.classList.remove('is-on');
+    $('go-summaryBox').textContent = buildSummary();
+    const hasEndpoint = !!CONFIG.submitEndpoint;
+    $('go-submitBtn').style.display = hasEndpoint ? '' : 'none';
+    $('go-copyStatus').textContent = hasEndpoint ? '' : 'Online submission isn’t set up yet — use Email or Copy to send your order to OnTalent.';
+    $('go-review').classList.add('is-on');
+    $('go-review').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  $('go-editBtn').onclick = () => {
+    $('go-review').classList.remove('is-on');
+    $('go-reviewActions').style.display = 'flex';
+    $('go-confirmBox').style.display = 'none';
+    const sb = $('go-submitBtn'); sb.disabled = false; sb.textContent = 'Submit order to OnTalent';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  $('go-copyBtn').onclick = () => {
+    const text = $('go-summaryBox').textContent;
+    navigator.clipboard.writeText(text).then(
+      () => { $('go-copyStatus').textContent = '✓ Copied — paste it into an email or message to OnTalent.'; },
+      () => { $('go-copyStatus').textContent = 'Could not auto-copy — select the text above and copy manually.'; }
+    );
+  };
+
+  $('go-emailBtn').onclick = () => {
+    const subject = 'goBILDA Group Order — ' + ($('go-name').value.trim() || 'order');
+    const body = $('go-summaryBox').textContent;
+    window.location.href = 'mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  };
+
+  function buildPayload(){
+    const lines = state.filter(it => it.qty > 0).map(it => ({
+      partNo: it.partNo, name: it.name, qty: it.qty, price: it.price,
+      lineTotal: +(it.qty * it.price).toFixed(2)
+    }));
+    const sub = lines.reduce((s, it) => s + it.lineTotal, 0);
+    const ship = fulfillment() === 'ship' ? CONFIG.shipFee : 0;
+    return {
+      submittedAt: new Date().toISOString(),
+      org: CONFIG.organizationName, currency: CONFIG.currency,
+      name: $('go-name').value.trim(), email: $('go-email').value.trim(),
+      phone: $('go-phone').value.trim(), team: $('go-team').value.trim(),
+      fulfillment: fulfillment(),
+      address: fulfillment() === 'ship'
+        ? ($('go-addr').value.trim() + ', ' + $('go-city').value.trim() + ', ' + $('go-prov').value.trim() + ' ' + $('go-postal').value.trim())
+        : '',
+      postal: fulfillment() === 'ship' ? $('go-postal').value.trim() : '',
+      items: lines, subtotal: +sub.toFixed(2), shipping: +ship.toFixed(2),
+      total: +(sub + ship).toFixed(2), notes: $('go-notes').value.trim(),
+      summary: buildSummary(), company: $('go-company').value
+    };
+  }
+
+  function showConfirmation(){
+    $('go-reviewActions').style.display = 'none';
+    const c = $('go-confirmBox');
+    c.style.display = 'block';
+    c.innerHTML = '<div class="go-confirm">'
+      + '<h3>✓ Order received</h3>'
+      + '<div>Thanks, ' + ($('go-name').value.trim() || 'there')
+      + '. OnTalent has your order. Nothing is charged yet — payment is collected once the order is confirmed at the cutoff (' + CONFIG.deadline + '). A copy is shown above for your records.</div></div>';
+    $('go-copyStatus').textContent = '';
+  }
+
+  async function submitOrder(){
+    if ($('go-company').value) { showConfirmation(); return; } // honeypot tripped
+    if (!CONFIG.submitEndpoint) { $('go-emailBtn').click(); return; }
+    const btn = $('go-submitBtn');
+    btn.disabled = true; btn.textContent = 'Submitting…';
+    try{
+      await fetch(CONFIG.submitEndpoint, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(buildPayload())
+      });
+      showConfirmation();
+    }catch(err){
+      btn.disabled = false; btn.textContent = 'Submit order to OnTalent';
+      $('go-copyStatus').textContent = 'Could not submit automatically — use “Email instead” or “Copy summary” to send your order.';
+    }
+  }
+
+  $('go-submitBtn').onclick = submitOrder;
+
+  // Start with three empty rows
+  addItem(); addItem(); addItem();
+  updateTotals();
+</script>
+<script src="./script.js"></script>
+</body>
+</html>
