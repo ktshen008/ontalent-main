@@ -376,7 +376,13 @@
   $('go-emailBtn').onclick = () => {
     const subject = 'goBILDA Group Order — ' + ($('go-name').value.trim() || 'order');
     const body = $('go-summaryBox').textContent;
-    window.location.href = 'mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    const mailto = 'mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    // Safety net: copy the summary in case no mail app opens (e.g. webmail users)
+    if (navigator.clipboard) { navigator.clipboard.writeText(body).catch(function(){}); }
+    // Open the draft without navigating away from the page
+    window.open(mailto, '_blank');
+    $('go-copyStatus').innerHTML = 'Opening your email app addressed to <strong>' + CONFIG.organizerEmail + '</strong>. '
+      + 'If nothing opens, your order summary has been copied — just paste it into a new email to <strong>' + CONFIG.organizerEmail + '</strong>.';
   };
 
   function buildPayload(){
