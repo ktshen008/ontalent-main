@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>goBILDA Group Order — ontalent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE; --surface:#FFFFFF; --ink:#18181B; --ink-2:#52525B; --ink-3:#8A8A82;
+    --line:#E4E1D8; --accent:#EA580C; --accent-deep:#B8430A; --accent-soft:#FCEBDD;
+    --ok:#15803D; --err:#DC2626;
+    --font-head:'Archivo',system-ui,sans-serif; --font-body:'IBM Plex Sans',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace; --r:10px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px 140px}
+
+  /* Header */
+  header{background:var(--ink);color:var(--paper);margin-bottom:26px;position:relative;overflow:hidden;border-bottom:3px solid var(--accent)}
+  header .grid-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.10) 1px,transparent 1px);background-size:16px 16px;opacity:.7}
+  .head-inner{max-width:860px;margin:0 auto;padding:26px 18px 30px;position:relative}
+  .brandline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .brand{font-family:var(--font-head);font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .brand .dot{color:var(--accent)}
+  .kicker{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#C9C7BE;border:1px solid #46463f;border-radius:999px;padding:3px 10px}
+  h1{font-family:var(--font-head);font-weight:700;font-size:clamp(28px,6vw,42px);line-height:1.04;letter-spacing:-.02em;margin:0 0 8px}
+  h1 .o{color:var(--accent)}
+  .lede{color:#D7D5CC;font-size:15px;max-width:54ch;margin:0 0 20px}
+  .specs{display:flex;flex-wrap:wrap;gap:8px}
+  .spec{font-family:var(--font-mono);font-size:12px;background:rgba(255,255,255,.06);border:1px solid #3a3a34;border-radius:8px;padding:7px 11px;display:flex;gap:8px;align-items:center}
+  .spec b{color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+  .spec span{color:#EDEBE2}
+
+  /* Sections */
+  section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-bottom:18px;opacity:0;animation:rise .5s ease forwards}
+  section:nth-of-type(1){animation-delay:.04s}
+  section:nth-of-type(2){animation-delay:.10s}
+  section:nth-of-type(3){animation-delay:.16s}
+  section:nth-of-type(4){animation-delay:.22s}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @media(prefers-reduced-motion:no-preference){section{transform:translateY(8px)}}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .num{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--accent-deep);background:var(--accent-soft);border-radius:7px;width:30px;height:30px;display:grid;place-items:center;flex:none}
+  .sec-head h2{font-family:var(--font-head);font-weight:600;font-size:18px;margin:0;letter-spacing:-.01em}
+  .sec-head .hint{font-size:12px;color:var(--ink-3);margin-left:auto;font-family:var(--font-mono)}
+
+  /* Fields */
+  .lbl{display:block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2);margin-bottom:5px}
+  .req{color:var(--accent)}
+  input,textarea,select{font-family:var(--font-body);font-size:15px;color:var(--ink);width:100%;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;transition:border-color .15s,box-shadow .15s}
+  input.mono{font-family:var(--font-mono)}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);background:var(--surface)}
+  input.invalid,textarea.invalid{border-color:var(--err);box-shadow:0 0 0 3px #fde8e8}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{margin-bottom:0}
+  textarea{min-height:74px;resize:vertical}
+
+  /* Fulfillment */
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .opt{border:1px solid var(--line);border-radius:9px;padding:14px;cursor:pointer;display:flex;gap:11px;align-items:flex-start;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:var(--ink-3)}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+  .opt input{width:auto;margin-top:3px;accent-color:var(--accent)}
+  .opt .ot{font-weight:600;font-size:14.5px}
+  .opt .od{font-size:12.5px;color:var(--ink-2);font-family:var(--font-mono)}
+  #shipFields{margin-top:16px;display:none}
+  #shipFields.on{display:block}
+
+  /* Line items */
+  .line-head{display:grid;grid-template-columns:1.3fr 2fr 64px 104px 100px 34px;gap:10px;padding:0 2px 8px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .line-head span:nth-child(n+3){text-align:right}
+  .line{display:grid;grid-template-columns:1.3fr 2fr 64px 104px 100px 34px;gap:10px;align-items:center;padding:8px 2px;border-top:1px solid var(--line)}
+  .line .ltot{font-family:var(--font-mono);font-size:14px;text-align:right;color:var(--ink)}
+  .line input[type=number]{text-align:right}
+  .cellab{display:none}
+  .rm{border:none;background:none;color:var(--ink-3);cursor:pointer;font-size:20px;line-height:1;width:30px;height:30px;border-radius:7px;justify-self:end;transition:color .15s,background .15s}
+  .rm:hover{color:var(--err);background:#fde8e8}
+  .addbtn{margin-top:14px;font-family:var(--font-mono);font-size:13px;font-weight:500;color:var(--accent-deep);background:var(--accent-soft);border:1px dashed var(--accent);border-radius:8px;padding:10px 14px;cursor:pointer;width:100%;transition:background .15s}
+  .addbtn:hover{background:#fbdcc6}
+  .partnote{font-size:12px;color:var(--ink-3);margin-top:10px}
+  .partnote a{color:var(--accent-deep)}
+
+  /* Summary */
+  .ledger{margin-top:6px}
+  .lrow{display:flex;justify-content:space-between;padding:9px 0;font-size:14.5px;border-top:1px solid var(--line)}
+  .lrow .v{font-family:var(--font-mono)}
+  .lrow.total{border-top:2px solid var(--ink);margin-top:4px;padding-top:13px;font-family:var(--font-head);font-weight:700;font-size:19px}
+  .lrow.total .v{font-family:var(--font-mono);font-weight:600}
+  .paynote{margin-top:14px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:11px 14px;font-size:13px;color:#6b3410}
+
+  /* Sticky bar */
+  .bar{position:sticky;bottom:0;left:0;right:0;background:var(--ink);color:var(--paper);border-top:3px solid var(--accent);margin-top:24px}
+  .bar-inner{max-width:860px;margin:0 auto;padding:13px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .bar .blbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#B9B7AE}
+  .bar .btot{font-family:var(--font-mono);font-size:22px;font-weight:600;color:#fff}
+  .bar .cta{margin-left:auto;font-family:var(--font-head);font-weight:600;font-size:15px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:11px 22px;cursor:pointer;transition:background .15s}
+  .bar .cta:hover{background:#fb6a23}
+
+  /* Review */
+  #errors{display:none;background:#fde8e8;border:1px solid #f5b5b5;border-radius:9px;padding:13px 16px;margin-bottom:16px;font-size:13.5px;color:#7f1d1d}
+  #errors.on{display:block}
+  #errors ul{margin:7px 0 0;padding-left:18px}
+  #review{display:none}
+  #review.on{display:block}
+  .summary{font-family:var(--font-mono);font-size:13px;white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:16px;line-height:1.6;color:var(--ink);max-height:340px;overflow:auto}
+  .review-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .btn{font-family:var(--font-head);font-weight:600;font-size:14px;border-radius:8px;padding:11px 18px;cursor:pointer;border:1px solid var(--ink);background:var(--surface);color:var(--ink);transition:.15s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{background:var(--accent-deep)}
+  .saved-note{font-size:12px;color:var(--ink-3);margin-top:12px;font-family:var(--font-mono)}
+  .footnote{text-align:center;color:var(--ink-3);font-size:12px;font-family:var(--font-mono);margin-top:22px}
+
+  @media(max-width:640px){
+    .grid2,.choice{grid-template-columns:1fr}
+    .line-head{display:none}
+    .line{grid-template-columns:1fr 1fr;gap:8px 10px;border-top:1px solid var(--line);padding:14px 2px}
+    .line .c-part{grid-column:1 / -1}
+    .line .c-name{grid-column:1 / -1}
+    .line .c-tot{grid-column:1 / -1}
+    .cellab{display:block;font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:4px}
+    .line .ltot{text-align:left}
+    .line input[type=number]{text-align:left}
+    .rm{justify-self:start;grid-column:2;justify-self:end}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="grid-bg"></div>
+  <div class="head-inner">
+    <div class="brandline">
+      <span class="brand" id="brandName">ontalent<span class="dot">.</span></span>
+      <span class="kicker">Group Order</span>
+    </div>
+    <h1><span class="o">goBILDA</span> Group Order</h1>
+    <p class="lede">Pool your team's goBILDA parts into one combined order. Add your items below, choose pickup or shipping, and submit before the cutoff.</p>
+    <div class="specs" id="specStrip"></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+  <div id="errors"><strong>Please fix the following:</strong><ul id="errorList"></ul></div>
+
+  <section>
+    <div class="sec-head"><span class="num">01</span><h2>Who's ordering</h2></div>
+    <div class="grid2" style="margin-bottom:14px">
+      <div class="field"><label class="lbl" for="name">Full name <span class="req">*</span></label><input id="name" type="text" placeholder="Your name"></div>
+      <div class="field"><label class="lbl" for="email">Email <span class="req">*</span></label><input id="email" type="email" placeholder="you@example.com"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label class="lbl" for="phone">Phone</label><input id="phone" type="tel" placeholder="Optional"></div>
+      <div class="field"><label class="lbl" for="team">Team / organization</label><input id="team" type="text" placeholder="e.g. FTC #12345 / school name"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">02</span><h2>How you'll receive it</h2></div>
+    <div class="choice">
+      <label class="opt sel" id="optPickup"><input type="radio" name="fulfillment" value="pickup" checked><span><span class="ot">Pickup</span><br><span class="od" id="pickupDesc">No shipping cost</span></span></label>
+      <label class="opt" id="optShip"><input type="radio" name="fulfillment" value="ship"><span><span class="ot">Ship to me</span><br><span class="od" id="shipDesc">+ flat shipping</span></span></label>
+    </div>
+    <div id="shipFields">
+      <div class="field" style="margin-bottom:14px"><label class="lbl" for="addr">Street address <span class="req">*</span></label><input id="addr" type="text" placeholder="Street and unit"></div>
+      <div class="grid2" style="margin-bottom:14px">
+        <div class="field"><label class="lbl" for="city">City <span class="req">*</span></label><input id="city" type="text"></div>
+        <div class="field"><label class="lbl" for="prov">Province / state <span class="req">*</span></label><input id="prov" type="text"></div>
+      </div>
+      <div class="field" style="max-width:260px"><label class="lbl" for="postal">Postal / ZIP code <span class="req">*</span></label><input id="postal" type="text" class="mono" placeholder="N6A 1A1"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">03</span><h2>Your parts</h2><span class="hint">prices in <span id="curLabel">USD</span></span></div>
+    <div class="line-head">
+      <span>Part #</span><span>Product name</span><span>Qty</span><span>Unit price</span><span>Line total</span><span></span>
+    </div>
+    <div id="lines"></div>
+    <button class="addbtn" id="addBtn">+ Add another part</button>
+    <p class="partnote">Find part numbers and current prices at <a href="https://www.gobilda.com" target="_blank" rel="noopener">gobilda.com</a>. Enter the unit price shown there — e.g. <span style="font-family:var(--font-mono)">5202-0002-0019 · 5202 Series Yellow Jacket Motor</span>.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">04</span><h2>Notes &amp; order summary</h2></div>
+    <div class="field" style="margin-bottom:18px"><label class="lbl" for="notes">Special requests / notes (optional)</label><textarea id="notes" placeholder="Anything the fulfillment team should know — substitutions, urgency, etc."></textarea></div>
+    <div class="ledger">
+      <div class="lrow"><span>Subtotal</span><span class="v" id="subtotal">$0.00</span></div>
+      <div class="lrow"><span id="shipLineLabel">Shipping (pickup)</span><span class="v" id="shipVal">$0.00</span></div>
+      <div class="lrow total"><span>Total</span><span class="v" id="grandTotal">$0.00</span></div>
+    </div>
+    <div class="paynote" id="payNote"></div>
+  </section>
+
+  <div id="review">
+    <section>
+      <div class="sec-head"><span class="num">✓</span><h2>Review &amp; submit</h2></div>
+      <div class="summary" id="summaryBox"></div>
+      <div class="review-actions" id="reviewActions">
+        <button class="btn primary" id="submitBtn">Submit order to ontalent</button>
+        <button class="btn" id="editBtn">Keep editing</button>
+        <button class="btn" id="emailBtn">Email instead</button>
+        <button class="btn" id="copyBtn">Copy summary</button>
+      </div>
+      <div id="confirmBox" style="display:none"></div>
+      <p class="saved-note" id="copyStatus"></p>
+    </section>
+  </div>
+
+  <p class="footnote">Submitted to ontalent · fulfilled by the back-office team · payment collected once the order is confirmed</p>
+</div>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div><div class="blbl">Order total</div><div class="btot" id="barTotal">$0.00</div></div>
+    <button class="cta" id="reviewBtn">Review order &rarr;</button>
+  </div>
+</div>
+
+<script>
+  /* ===========================================================
+     ONTALENT — EDIT THESE SETTINGS FOR EACH GROUP ORDER
+     =========================================================== */
+  const CONFIG = {
+    organizationName: "ontalent",
+    currency: "USD",            // currency participants enter prices in
+    currencySymbol: "$",
+    deadline: "Friday, June 20, 2026",        // order cutoff date
+    minimumNote: "$500 group minimum",        // e.g. "20 items" or "$500 minimum"
+    pickupLocation: "ontalent — pickup details TBD",
+    shipFee: 12.00,             // flat estimated shipping charged if shipped
+    organizerEmail: "orders@ontalent.org",    // fallback email if submitting is off
+    submitEndpoint: ""          // <-- paste your Google Apps Script web app URL here
+  };
+  /* =========================================================== */
+
+  const state = [];
+  const $ = id => document.getElementById(id);
+  const money = n => CONFIG.currencySymbol + (Number(n) || 0).toFixed(2);
+  const clampInt = v => { v = parseInt(v, 10); return (isNaN(v) || v < 0) ? 0 : v; };
+  const clampNum = v => { v = parseFloat(v); return (isNaN(v) || v < 0) ? 0 : v; };
+  const fulfillment = () => document.querySelector('input[name="fulfillment"]:checked').value;
+
+  // Populate header + config-driven text
+  $('brandName').innerHTML = CONFIG.organizationName + '<span class="dot">.</span>';
+  $('curLabel').textContent = CONFIG.currency;
+  $('shipDesc').textContent = '+ ' + money(CONFIG.shipFee) + ' flat shipping';
+  $('pickupDesc').textContent = CONFIG.pickupLocation;
+  $('specStrip').innerHTML =
+    '<div class="spec"><b>Cutoff</b><span>' + CONFIG.deadline + '</span></div>' +
+    '<div class="spec"><b>Minimum</b><span>' + CONFIG.minimumNote + '</span></div>' +
+    '<div class="spec"><b>Pickup or ship</b><span>your choice</span></div>' +
+    '<div class="spec"><b>Payment</b><span>once confirmed</span></div>';
+  $('payNote').innerHTML = '<strong>Payment:</strong> nothing is charged yet. Once the order reaches its minimum and is confirmed at the cutoff (' + CONFIG.deadline + '), ontalent will contact you to collect payment before the parts are ordered.';
+
+  function createRow(item){
+    const row = document.createElement('div');
+    row.className = 'line';
+
+    function cell(cls, labelText, inputEl){
+      const c = document.createElement('div'); c.className = cls;
+      const lab = document.createElement('span'); lab.className = 'cellab'; lab.textContent = labelText;
+      c.appendChild(lab); c.appendChild(inputEl); return c;
+    }
+    function mk(type, val, ph, mono){
+      const i = document.createElement('input'); i.type = type; i.value = val; if(ph) i.placeholder = ph;
+      if(mono) i.className = 'mono'; if(type==='number'){ i.min = 0; }
+      return i;
+    }
+
+    const part = mk('text', item.partNo, '5202-...', true);
+    part.oninput = () => { item.partNo = part.value; };
+
+    const name = mk('text', item.name, 'e.g. Yellow Jacket Motor', false);
+    name.oninput = () => { item.name = name.value; };
+
+    const qty = mk('number', item.qty || '', '0', true); qty.step = 1;
+    const price = mk('number', item.price || '', '0.00', true); price.step = '0.01';
+
+    const ltot = document.createElement('div'); ltot.className = 'ltot'; ltot.textContent = money(item.qty * item.price);
+
+    qty.oninput = () => { item.qty = clampInt(qty.value); ltot.textContent = money(item.qty * item.price); updateTotals(); };
+    price.oninput = () => { item.price = clampNum(price.value); ltot.textContent = money(item.qty * item.price); updateTotals(); };
+
+    const rm = document.createElement('button'); rm.className = 'rm'; rm.type = 'button'; rm.innerHTML = '&times;'; rm.setAttribute('aria-label','Remove part');
+    rm.onclick = () => { const idx = state.indexOf(item); if(idx>-1) state.splice(idx,1); row.remove(); updateTotals(); };
+
+    row.appendChild(cell('c-part','Part #', part));
+    row.appendChild(cell('c-name','Product name', name));
+    row.appendChild(cell('c-qty','Qty', qty));
+    row.appendChild(cell('c-price','Unit price', price));
+    const totCell = cell('c-tot','Line total', ltot); row.appendChild(totCell);
+    row.appendChild(rm);
+    return { row, qty, price, name };
+  }
+
+  function addItem(){
+    const item = { partNo:'', name:'', qty:0, price:0 };
+    state.push(item);
+    const { row } = createRow(item);
+    $('lines').appendChild(row);
+  }
+
+  function updateTotals(){
+    const sub = state.reduce((s,it)=> s + (it.qty * it.price), 0);
+    const ship = fulfillment() === 'ship' ? CONFIG.shipFee : 0;
+    const total = sub + ship;
+    $('subtotal').textContent = money(sub);
+    $('shipVal').textContent = money(ship);
+    $('shipLineLabel').textContent = fulfillment() === 'ship' ? 'Shipping (flat estimate)' : 'Shipping (pickup)';
+    $('grandTotal').textContent = money(total);
+    $('barTotal').textContent = money(total);
+  }
+
+  // Fulfillment toggle
+  document.querySelectorAll('input[name="fulfillment"]').forEach(r => {
+    r.onchange = () => {
+      $('optPickup').classList.toggle('sel', fulfillment()==='pickup');
+      $('optShip').classList.toggle('sel', fulfillment()==='ship');
+      $('shipFields').classList.toggle('on', fulfillment()==='ship');
+      updateTotals();
+    };
+  });
+
+  $('addBtn').onclick = addItem;
+
+  function validate(){
+    const errors = [];
+    document.querySelectorAll('.invalid').forEach(e=>e.classList.remove('invalid'));
+    const name = $('name'), email = $('email');
+    if(!name.value.trim()){ errors.push('Enter your name.'); name.classList.add('invalid'); }
+    if(!email.value.trim()){ errors.push('Enter your email.'); email.classList.add('invalid'); }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ errors.push('Enter a valid email address.'); email.classList.add('invalid'); }
+    const valid = state.filter(it => it.qty > 0 && it.price > 0);
+    if(valid.length === 0){ errors.push('Add at least one part with a quantity and unit price.'); }
+    if(fulfillment() === 'ship'){
+      [['addr','street address'],['city','city'],['prov','province/state'],['postal','postal/ZIP code']].forEach(([id,label])=>{
+        if(!$(id).value.trim()){ errors.push('Enter your ' + label + ' for shipping.'); $(id).classList.add('invalid'); }
+      });
+    }
+    return errors;
+  }
+
+  function buildSummary(){
+    const lines = state.filter(it => it.qty > 0);
+    const sub = lines.reduce((s,it)=> s + (it.qty * it.price), 0);
+    const ship = fulfillment() === 'ship' ? CONFIG.shipFee : 0;
+    let out = 'goBILDA GROUP ORDER — ' + CONFIG.organizationName + '\n';
+    out += 'Submitted: ' + new Date().toLocaleString() + '\n';
+    out += '──────────────────────────────\n';
+    out += 'PARTICIPANT\n';
+    out += '  Name:  ' + $('name').value.trim() + '\n';
+    out += '  Email: ' + $('email').value.trim() + '\n';
+    if($('phone').value.trim()) out += '  Phone: ' + $('phone').value.trim() + '\n';
+    if($('team').value.trim())  out += '  Team:  ' + $('team').value.trim() + '\n';
+    out += '\nFULFILLMENT: ' + (fulfillment()==='ship' ? 'Ship' : 'Pickup') + '\n';
+    if(fulfillment()==='ship'){
+      out += '  ' + $('addr').value.trim() + '\n';
+      out += '  ' + $('city').value.trim() + ', ' + $('prov').value.trim() + '  ' + $('postal').value.trim() + '\n';
+    }
+    out += '\nPARTS (' + CONFIG.currency + ')\n';
+    lines.forEach(it=>{
+      out += '  ' + String(it.qty).padStart(3,' ') + ' x  ' + (it.partNo || '—') + '  |  ' + (it.name || 'unnamed') +
+             '  @ ' + money(it.price) + '  =  ' + money(it.qty*it.price) + '\n';
+    });
+    out += '──────────────────────────────\n';
+    out += '  Subtotal: ' + money(sub) + '\n';
+    out += '  Shipping: ' + money(ship) + (fulfillment()==='ship' ? ' (flat estimate)' : '') + '\n';
+    out += '  TOTAL:    ' + money(sub + ship) + '\n';
+    if($('notes').value.trim()) out += '\nNOTES\n  ' + $('notes').value.trim() + '\n';
+    out += '\nPayment collected once the order is confirmed at the cutoff (' + CONFIG.deadline + ').';
+    return out;
+  }
+
+  $('reviewBtn').onclick = () => {
+    const errors = validate();
+    const box = $('errors');
+    if(errors.length){
+      $('errorList').innerHTML = errors.map(e => '<li>' + e + '</li>').join('');
+      box.classList.add('on');
+      box.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    box.classList.remove('on');
+    $('summaryBox').textContent = buildSummary();
+    const hasEndpoint = !!CONFIG.submitEndpoint;
+    $('submitBtn').style.display = hasEndpoint ? '' : 'none';
+    $('copyStatus').textContent = hasEndpoint ? '' : 'Online submission isn\u2019t set up yet \u2014 use Email or Copy to send your order to ontalent.';
+    $('review').classList.add('on');
+    $('review').scrollIntoView({behavior:'smooth', block:'start'});
+  };
+
+  $('editBtn').onclick = () => {
+    $('review').classList.remove('on');
+    $('reviewActions').style.display = 'flex';
+    $('confirmBox').style.display = 'none';
+    const sb = $('submitBtn'); sb.disabled = false; sb.textContent = 'Submit order to ontalent';
+    window.scrollTo({top:0, behavior:'smooth'});
+  };
+
+  $('copyBtn').onclick = () => {
+    const text = $('summaryBox').textContent;
+    navigator.clipboard.writeText(text).then(
+      () => { $('copyStatus').textContent = '✓ Copied — paste it into an email or message to ontalent.'; },
+      () => { $('copyStatus').textContent = 'Could not auto-copy — select the text above and copy manually.'; }
+    );
+  };
+
+  $('emailBtn').onclick = () => {
+    const subject = 'goBILDA Group Order — ' + ($('name').value.trim() || 'order');
+    const body = $('summaryBox').textContent;
+    window.location.href = 'mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  };
+
+  function buildPayload(){
+    const lines = state.filter(it => it.qty > 0).map(it => ({
+      partNo: it.partNo, name: it.name, qty: it.qty, price: it.price,
+      lineTotal: +(it.qty * it.price).toFixed(2)
+    }));
+    const sub = lines.reduce((s, it) => s + it.lineTotal, 0);
+    const ship = fulfillment() === 'ship' ? CONFIG.shipFee : 0;
+    return {
+      submittedAt: new Date().toISOString(),
+      org: CONFIG.organizationName, currency: CONFIG.currency,
+      name: $('name').value.trim(), email: $('email').value.trim(),
+      phone: $('phone').value.trim(), team: $('team').value.trim(),
+      fulfillment: fulfillment(),
+      address: fulfillment() === 'ship'
+        ? ($('addr').value.trim() + ', ' + $('city').value.trim() + ', ' + $('prov').value.trim() + ' ' + $('postal').value.trim())
+        : '',
+      postal: fulfillment() === 'ship' ? $('postal').value.trim() : '',
+      items: lines, subtotal: +sub.toFixed(2), shipping: +ship.toFixed(2),
+      total: +(sub + ship).toFixed(2), notes: $('notes').value.trim(),
+      summary: buildSummary(), company: $('company').value
+    };
+  }
+
+  function showConfirmation(){
+    $('reviewActions').style.display = 'none';
+    const c = $('confirmBox');
+    c.style.display = 'block';
+    c.innerHTML = '<div style="background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:16px 18px">'
+      + '<div style="font-family:var(--font-head);font-weight:700;font-size:18px;color:#6b3410;margin-bottom:6px">\u2713 Order received</div>'
+      + '<div style="font-size:14px;color:#6b3410">Thanks, ' + ($('name').value.trim() || 'there')
+      + '. ontalent has your order. Nothing is charged yet \u2014 payment is collected once the order is confirmed at the cutoff (' + CONFIG.deadline + '). A copy is shown above for your records.</div></div>';
+    $('copyStatus').textContent = '';
+  }
+
+  async function submitOrder(){
+    if ($('company').value) { showConfirmation(); return; }
+    if (!CONFIG.submitEndpoint) { $('emailBtn').click(); return; }
+    const btn = $('submitBtn');
+    btn.disabled = true; btn.textContent = 'Submitting\u2026';
+    try{
+      await fetch(CONFIG.submitEndpoint, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(buildPayload())
+      });
+      showConfirmation();
+    }catch(err){
+      btn.disabled = false; btn.textContent = 'Submit order to ontalent';
+      $('copyStatus').textContent = 'Could not submit automatically \u2014 use \u201cEmail instead\u201d or \u201cCopy summary\u201d to send your order.';
+    }
+  }
+
+  $('submitBtn').onclick = submitOrder;
+
+  // Start with three empty rows
+  addItem(); addItem(); addItem();
+  updateTotals();
+</script>
+</body>
+</html>
