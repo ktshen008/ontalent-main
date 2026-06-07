@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OnTalent helps schools and coaches start or grow FLL/FTC robotics teams — registration, funding, equipment, coach training, and mentors. Tell us what you need.">
+  <meta property="og:title" content="Start or Grow Your FLL/FTC Team | OnTalent">
+  <meta property="og:description" content="Needs-based support to launch and build FIRST robotics teams — mentors, grants, equipment, coach training.">
+  <meta property="og:image" content="https://ktshen008.github.io/ontalent-main/social-preview.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#2b214a">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="./favicon.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./styles.css?v=20260607">
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Start or Grow Your FLL/FTC Team | OnTalent</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="./index.html" aria-label="OnTalent home">
+      <img src="./assets/images/logo-header-violet.png" alt="OnTalent" class="brand__logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    <nav class="nav" id="site-nav">
+      <a class="nav__link" href="./index.html">Home</a>
+      <a class="nav__link" href="./pathways.html">Pathways</a>
+      <a class="nav__link" href="./network.html">Network</a>
+      <a class="nav__link" href="./experiences.html">Experiences</a>
+      <a class="nav__link" href="./impact.html">Impact</a>
+      <a class="nav__link" href="./about.html">About</a>
+      <a class="nav__link" href="./join.html">Join</a>
+      <a class="nav__link nav__cta btn btn--primary btn--sm" href="./join-students-families.html">Register</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__tag" data-reveal>Pathways · Robotics · Coaches</span>
+    <h1 class="page-hero__title" data-reveal data-delay="1">Start or grow your <em>FLL / FTC team</em></h1>
+    <p class="page-hero__lede" data-reveal data-delay="1">OnTalent helps schools and coaches launch and build FIRST robotics teams — registration, funding, equipment, coach training, and mentors. Tell us where you are and what you need most, and we'll help you take the next step.</p>
+    <div class="go-specs" data-reveal data-delay="2">
+      <div class="go-spec"><b>Programs</b><span>FLL Explore/Challenge &amp; FTC</span></div>
+      <div class="go-spec"><b>For</b><span>Schools &amp; coaches</span></div>
+      <div class="go-spec"><b>Support</b><span>Mentors · grants · equipment</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="go-wrap">
+
+    <!-- Honeypot (hidden from users and assistive tech) -->
+    <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
+    <div class="go-errors" id="errors" role="alert"><strong>Please fix the following:</strong><ul id="errorList"></ul></div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">01</span><h2>About you</h2></div>
+      <div class="go-grid2">
+        <div class="form-field"><label class="go-lbl" for="name">Full name <span class="go-req">*</span></label><input class="form-input" id="name" type="text" placeholder="Your name" autocomplete="name"></div>
+        <div class="form-field"><label class="go-lbl" for="role">Your role <span class="go-req">*</span></label>
+          <select class="form-input" id="role"><option value="">Select…</option><option>Teacher / educator</option><option>School staff / administrator</option><option>Parent volunteer coach</option><option>Community / club coach</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="go-grid2" style="margin-top:16px">
+        <div class="form-field"><label class="go-lbl" for="email">Email <span class="go-req">*</span></label><input class="form-input" id="email" type="email" placeholder="you@example.com" autocomplete="email"></div>
+        <div class="form-field"><label class="go-lbl" for="phone">Phone</label><input class="form-input" id="phone" type="tel" placeholder="Optional" autocomplete="tel"></div>
+      </div>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">02</span><h2>Your school</h2></div>
+      <div class="go-grid2">
+        <div class="form-field"><label class="go-lbl" for="school">School / organization <span class="go-req">*</span></label><input class="form-input" id="school" type="text" placeholder="School name"></div>
+        <div class="form-field"><label class="go-lbl" for="schoolType">School type</label>
+          <select class="form-input" id="schoolType"><option value="">Select…</option><option>Public</option><option>Catholic / separate</option><option>Private / independent</option><option>Homeschool group</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="go-grid2" style="margin-top:16px">
+        <div class="form-field"><label class="go-lbl" for="city">City <span class="go-req">*</span></label><input class="form-input" id="city" type="text" placeholder="City"></div>
+        <div class="form-field"><label class="go-lbl" for="board">School board / district</label><input class="form-input" id="board" type="text" placeholder="Optional"></div>
+      </div>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">03</span><h2>Where you are</h2></div>
+      <div class="go-grid2">
+        <div class="form-field"><label class="go-lbl" for="stage">Current stage</label>
+          <select class="form-input" id="stage"><option value="">Select…</option><option>Brand new — no team yet</option><option>Have a team, want to improve</option><option>Had a team before, restarting</option><option>Just exploring</option></select>
+        </div>
+        <div class="form-field"><label class="go-lbl" for="workshop">Done an OnTalent workshop?</label>
+          <select class="form-input" id="workshop"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not yet — interested</option></select>
+        </div>
+      </div>
+      <label class="go-lbl" style="margin-top:16px">Which program(s)? <span class="go-req">*</span></label>
+      <div class="go-picks" id="programs">
+        <label class="go-pick"><input type="checkbox" value="FLL Explore"><span>FLL Explore (younger)</span></label>
+        <label class="go-pick"><input type="checkbox" value="FLL Challenge"><span>FLL Challenge</span></label>
+        <label class="go-pick"><input type="checkbox" value="FTC"><span>FTC (FIRST Tech Challenge)</span></label>
+        <label class="go-pick"><input type="checkbox" value="Not sure yet"><span>Not sure yet</span></label>
+      </div>
+      <div class="go-grid2" style="margin-top:16px">
+        <div class="form-field"><label class="go-lbl" for="grades">Grade level(s)</label>
+          <select class="form-input" id="grades"><option value="">Select…</option><option>Grades 2–4</option><option>Grades 4–8</option><option>Grades 7–12</option><option>Mixed / multiple</option></select>
+        </div>
+        <div class="form-field"><label class="go-lbl" for="students">Estimated # of students</label><input class="form-input" id="students" type="text" placeholder="e.g. 8, or 'not sure yet'"></div>
+      </div>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">04</span><h2>Your coaching setup</h2></div>
+      <div class="go-grid2">
+        <div class="form-field"><label class="go-lbl" for="coachExp">Coach's robotics experience</label>
+          <select class="form-input" id="coachExp"><option value="">Select…</option><option>New to this</option><option>Some experience</option><option>Experienced</option></select>
+        </div>
+        <div class="form-field"><label class="go-lbl" for="mentors">Mentors / volunteers lined up?</label>
+          <select class="form-input" id="mentors"><option value="">Select…</option><option>Yes</option><option>A few</option><option>None yet</option></select>
+        </div>
+      </div>
+      <div class="form-field" style="margin-top:16px"><label class="go-lbl" for="space">Meeting space available?</label>
+        <select class="form-input" id="space"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not sure</option></select>
+      </div>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">05</span><h2>What you need most</h2></div>
+      <p class="go-sec-note">Check everything you'd like help with — this is how we'll tailor support.</p>
+      <label class="go-lbl">We could use help with <span class="go-req">*</span></label>
+      <div class="go-picks" id="needs">
+        <label class="go-pick"><input type="checkbox" value="Registering with FIRST Canada"><span>Registering with FIRST Canada</span></label>
+        <label class="go-pick"><input type="checkbox" value="Funding & grants"><span>Funding &amp; grants</span></label>
+        <label class="go-pick"><input type="checkbox" value="Equipment & kits"><span>Equipment &amp; kits</span></label>
+        <label class="go-pick"><input type="checkbox" value="Coach training"><span>Coach training</span></label>
+        <label class="go-pick"><input type="checkbox" value="A mentor for our team"><span>A mentor for our team</span></label>
+        <label class="go-pick"><input type="checkbox" value="Season curriculum & cadence"><span>Season curriculum &amp; cadence</span></label>
+        <label class="go-pick"><input type="checkbox" value="Competition prep"><span>Competition prep</span></label>
+        <label class="go-pick"><input type="checkbox" value="Fundraising & sustainability"><span>Fundraising &amp; sustainability</span></label>
+      </div>
+      <div class="form-field" style="margin-top:16px"><label class="go-lbl" for="detail">Tell us more about what you're hoping for</label><textarea class="form-input" id="detail" placeholder="A few sentences about your goals and where you'd most like a hand."></textarea></div>
+      <p class="note mt-1">Already have a team? You can source parts now through our <a href="./group-order-gobilda.html">goBILDA group order</a>.</p>
+    </div>
+
+    <div class="card go-card">
+      <div class="go-sec-head"><span class="go-num">06</span><h2>Funding &amp; timeline</h2></div>
+      <div class="go-grid2">
+        <div class="form-field"><label class="go-lbl" for="funding">Funding</label>
+          <select class="form-input" id="funding"><option value="">Select…</option><option>Our school can fund it</option><option>We'd like cost information</option><option>Hoping for grants or sponsorship</option><option>Not sure yet</option></select>
+        </div>
+        <div class="form-field"><label class="go-lbl" for="timeline">When hoping to start?</label><input class="form-input" id="timeline" type="text" placeholder="e.g. this season, or a target month"></div>
+      </div>
+      <div class="form-field" style="margin-top:16px"><label class="go-lbl" for="notes">Anything else?</label><textarea class="form-input" id="notes" placeholder="Optional notes."></textarea></div>
+    </div>
+
+    <div id="go-review">
+      <div class="card go-card">
+        <div class="go-sec-head"><span class="go-num">✓</span><h2>Review &amp; submit</h2></div>
+        <div class="go-summary" id="summaryBox"></div>
+        <div class="go-review-actions" id="reviewActions">
+          <button class="btn btn--primary" id="submitBtn" type="button">Submit request</button>
+          <button class="btn btn--ghost" id="editBtn" type="button">Keep editing</button>
+          <button class="btn btn--ghost" id="emailBtn" type="button">Email instead</button>
+          <button class="btn btn--ghost" id="copyBtn" type="button">Copy summary</button>
+        </div>
+        <div id="confirmBox" style="display:none"></div>
+        <p class="go-status" id="copyStatus"></p>
+      </div>
+    </div>
+
+    <p class="note center mt-2">Reviewed by OnTalent · we'll follow up to help you take the next step · mentors are vetted and work under school supervision.</p>
+  </div>
+</section>
+
+<div class="go-bar">
+  <div class="go-bar-inner">
+    <span class="go-blbl">Building an FLL/FTC team with OnTalent</span>
+    <button class="btn btn--primary" id="reviewBtn" type="button">Review request →</button>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div>
+      <a class="brand" href="./index.html" aria-label="OnTalent home"><img src="./assets/images/logo-header-white.png" alt="OnTalent" class="brand__logo"></a>
+      <p class="site-footer__about">A youth innovation ecosystem — robotics, AI, health science, and leadership at OnTalent Lab | Western STEM Studio.</p>
+    </div>
+    <div class="fcol">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="./pathways.html">Pathways</a></li>
+        <li><a href="./experiences-summer-camps.html">Summer Camps</a></li>
+        <li><a href="./experiences.html">Experiences</a></li>
+        <li><a href="./impact.html">Impact &amp; Data</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="./network-western-stem-studio.html">Western STEM Studio</a></li>
+        <li><a href="./network-university-chapters.html">University Involvement</a></li>
+        <li><a href="./network-partners-supporters.html">Partners &amp; Supporters</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="./join-students-families.html">Students &amp; Families</a></li>
+        <li><a href="./join.html#mentors-volunteers">Mentors &amp; Volunteers</a></li>
+        <li><a href="./join-sponsors-supporters.html">Support Us</a></li>
+        <li><a href="./workshop-application.html">School Workshops</a></li>
+        <li><a href="./team-support.html">FLL/FTC Team Support</a></li>
+        <li><a href="./group-order-gobilda.html">goBILDA Group Order</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/ontalent-stemm" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://us14.campaign-archive.com/home/?u=96f01affdb5cc285e50d4a68a&id=27def29310" target="_blank" rel="noopener">Newsletter</a></li>
+        <li><a href="mailto:info@ontalent.org">info@ontalent.org</a></li>
+        <li><a href="./about.html">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <p><strong>Ontario Centre for Talent Development</strong> — operating as OnTalent</p>
+    <p>OnTalent Lab | Western STEM Studio · Western University Discovery Park · 999 Collip Circle, London, ON N6G 0J3, Canada</p>
+    <p>&copy; <span data-year>2026</span> Ontario Centre for Talent Development. All rights reserved.</p>
+  </div>
+</footer>
+<script src="./script.js"></script>
+<script>
+  /* ===== OnTalent — edit these settings ===== */
+  const CONFIG = {
+    organizationName: "OnTalent",
+    organizerEmail: "info@ontalent.org",
+    submitEndpoint: "https://script.google.com/macros/s/AKfycbyoDByG1oxsWD3nXbwmBG9Oj4cA91bSk6HAbaDBaBvalplmQ_doOvmxrL488PQRzS0n5A/exec"
+  };
+  /* ========================================= */
+
+  const $ = id => document.getElementById(id);
+  const setInvalid = el => el.classList.add('form-input--invalid');
+
+  document.querySelectorAll('.go-pick input').forEach(cb => {
+    cb.onchange = () => cb.closest('.go-pick').classList.toggle('is-sel', cb.checked);
+  });
+  const picked = containerId => Array.from(document.querySelectorAll('#' + containerId + ' input:checked')).map(cb => cb.value);
+
+  function validate(){
+    const errors = [];
+    document.querySelectorAll('.form-input--invalid').forEach(e => e.classList.remove('form-input--invalid'));
+    const need = (id, msg) => { if(!$(id).value.trim()){ errors.push(msg); setInvalid($(id)); } };
+    need('name', 'Enter your name.');
+    if(!$('role').value){ errors.push('Select your role.'); setInvalid($('role')); }
+    const email = $('email');
+    if(!email.value.trim()){ errors.push('Enter your email.'); setInvalid(email); }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ errors.push('Enter a valid email.'); setInvalid(email); }
+    need('school', 'Enter your school name.');
+    need('city', 'Enter your city.');
+    if(picked('programs').length === 0){ errors.push('Select at least one program (or "Not sure yet").'); }
+    if(picked('needs').length === 0){ errors.push('Check at least one thing you’d like help with.'); }
+    return errors;
+  }
+
+  function buildSummary(){
+    let o = 'ONTALENT — FLL/FTC TEAM SUPPORT REQUEST\n';
+    o += 'Submitted: ' + new Date().toLocaleString() + '\n';
+    o += '──────────────────────────────\n';
+    o += 'COACH\n  ' + $('name').value.trim() + ' — ' + $('role').value + '\n  ' + $('email').value.trim() + ($('phone').value.trim() ? ' · ' + $('phone').value.trim() : '') + '\n';
+    o += '\nSCHOOL\n  ' + $('school').value.trim() + ($('schoolType').value ? ' (' + $('schoolType').value + ')' : '') + '\n  ' + $('city').value.trim() + ($('board').value.trim() ? ' · ' + $('board').value.trim() : '') + '\n';
+    o += '\nWHERE THEY ARE\n';
+    if($('stage').value)    o += '  Stage: ' + $('stage').value + '\n';
+    o += '  Program(s): ' + picked('programs').join(', ') + '\n';
+    if($('grades').value)   o += '  Grades: ' + $('grades').value + '\n';
+    if($('students').value.trim()) o += '  Students: ' + $('students').value.trim() + '\n';
+    if($('workshop').value) o += '  Did OnTalent workshop: ' + $('workshop').value + '\n';
+    o += '\nCOACHING SETUP\n';
+    if($('coachExp').value) o += '  Coach experience: ' + $('coachExp').value + '\n';
+    if($('mentors').value)  o += '  Mentors lined up: ' + $('mentors').value + '\n';
+    if($('space').value)    o += '  Meeting space: ' + $('space').value + '\n';
+    o += '\nNEEDS HELP WITH\n  ' + picked('needs').join(', ') + '\n';
+    if($('detail').value.trim()) o += '\nDETAIL\n  ' + $('detail').value.trim() + '\n';
+    if($('funding').value)  o += '\nFunding: ' + $('funding').value + '\n';
+    if($('timeline').value.trim()) o += 'Timeline: ' + $('timeline').value.trim() + '\n';
+    if($('notes').value.trim())    o += 'Notes: ' + $('notes').value.trim() + '\n';
+    return o;
+  }
+
+  function buildPayload(){
+    return {
+      type: 'team', submittedAt: new Date().toISOString(), org: CONFIG.organizationName,
+      name: $('name').value.trim(), role: $('role').value, email: $('email').value.trim(), phone: $('phone').value.trim(),
+      school: $('school').value.trim(), schoolType: $('schoolType').value, city: $('city').value.trim(), board: $('board').value.trim(),
+      stage: $('stage').value, programs: picked('programs').join(', '), grades: $('grades').value,
+      students: $('students').value.trim(), didWorkshop: $('workshop').value,
+      coachExp: $('coachExp').value, mentors: $('mentors').value, space: $('space').value,
+      needs: picked('needs').join(', '), detail: $('detail').value.trim(),
+      funding: $('funding').value, timeline: $('timeline').value.trim(), notes: $('notes').value.trim(),
+      summary: buildSummary(), company: $('company').value
+    };
+  }
+
+  function showConfirmation(){
+    $('reviewActions').style.display = 'none';
+    const ftc = picked('programs').indexOf('FTC') > -1;
+    $('confirmBox').style.display = 'block';
+    $('confirmBox').innerHTML = '<div class="go-confirm">'
+      + '<h3>✓ Request received</h3>'
+      + '<div>Thanks, ' + ($('name').value.trim() || 'there') + '. OnTalent will review where you are and follow up to help you take the next step.'
+      + (ftc ? ' Since you’re looking at FTC, you can also use our <a href="./group-order-gobilda.html">goBILDA group order</a> to source parts once you’re set up.' : '')
+      + '</div></div>';
+    $('copyStatus').textContent = '';
+    const rb = $('reviewBtn'); rb.disabled = true; rb.textContent = 'Submitted ✓';
+  }
+
+  async function submitRequest(){
+    if($('company').value){ showConfirmation(); return; } // honeypot
+    if(!CONFIG.submitEndpoint){ $('emailBtn').click(); return; }
+    const btn = $('submitBtn'); const rb = $('reviewBtn');
+    btn.disabled = true; btn.textContent = 'Submitting…';
+    rb.disabled = true; rb.textContent = 'Submitting…';
+    try{
+      await fetch(CONFIG.submitEndpoint, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(buildPayload()) });
+      showConfirmation();
+    }catch(err){
+      btn.disabled = false; btn.textContent = 'Submit request';
+      rb.disabled = false; rb.textContent = 'Submit request ↦';
+      $('copyStatus').textContent = 'Could not submit automatically — use “Email instead” or “Copy summary” to send your request.';
+    }
+  }
+
+  let goReviewed = false;
+  $('reviewBtn').onclick = () => {
+    if (goReviewed && CONFIG.submitEndpoint) { submitRequest(); return; }
+    const errors = validate(); const box = $('errors');
+    if(errors.length){ $('errorList').innerHTML = errors.map(e => '<li>' + e + '</li>').join(''); box.classList.add('is-on'); box.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+    box.classList.remove('is-on');
+    $('summaryBox').textContent = buildSummary();
+    const hasEndpoint = !!CONFIG.submitEndpoint;
+    $('submitBtn').style.display = hasEndpoint ? '' : 'none';
+    $('copyStatus').textContent = hasEndpoint ? '' : 'Online submission isn’t set up yet — use Email or Copy to send your request to OnTalent.';
+    $('go-review').classList.add('is-on'); $('go-review').scrollIntoView({behavior:'smooth', block:'start'});
+    goReviewed = true;
+    if (hasEndpoint) { $('reviewBtn').textContent = 'Submit request ↦'; }
+  };
+  $('editBtn').onclick = () => {
+    $('go-review').classList.remove('is-on'); $('reviewActions').style.display = 'flex'; $('confirmBox').style.display = 'none';
+    const sb = $('submitBtn'); sb.disabled = false; sb.textContent = 'Submit request';
+    goReviewed = false;
+    const rb = $('reviewBtn'); rb.disabled = false; rb.textContent = 'Review request →';
+    window.scrollTo({top:0, behavior:'smooth'});
+  };
+  $('copyBtn').onclick = () => { navigator.clipboard.writeText($('summaryBox').textContent).then(
+    () => { $('copyStatus').textContent = '✓ Copied — paste it into an email to OnTalent.'; },
+    () => { $('copyStatus').textContent = 'Could not auto-copy — select the text above and copy manually.'; }); };
+  $('emailBtn').onclick = () => {
+    const subject = 'OnTalent FLL/FTC team support — ' + ($('school').value.trim() || $('name').value.trim() || 'request');
+    const body = $('summaryBox').textContent;
+    if (navigator.clipboard) { navigator.clipboard.writeText(body).catch(function(){}); }
+    window.open('mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body), '_blank');
+    $('copyStatus').innerHTML = 'Opening your email app addressed to <strong>' + CONFIG.organizerEmail + '</strong>. If nothing opens, your request has been copied — paste it into a new email to <strong>' + CONFIG.organizerEmail + '</strong>.';
+  };
+  $('submitBtn').onclick = submitRequest;
+</script>
+</body>
+</html>

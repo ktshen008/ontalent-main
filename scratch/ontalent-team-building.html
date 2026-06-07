@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start or Grow Your FLL/FTC Team — OnTalent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8FD; --surface:#FFFFFF; --ink:#1C1726; --ink-2:#5B5470; --ink-3:#938CA8;
+    --line:#E7E2F0; --brand:#6D4ED6; --brand-deep:#4A2FA0; --brand-soft:#EFE9FB; --band:#2B214A;
+    --ok:#15803D; --err:#DC2626;
+    --font-head:'Fraunces',Georgia,serif; --font-body:'Public Sans',system-ui,sans-serif; --r:10px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 18px 120px}
+  header{background:var(--band);color:#fff;position:relative;overflow:hidden;border-bottom:3px solid var(--brand)}
+  header .grid-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.08) 1px,transparent 1px);background-size:18px 18px}
+  .head-inner{max-width:820px;margin:0 auto;padding:26px 18px 30px;position:relative}
+  .brandline{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .brand{font-family:var(--font-head);font-weight:600;font-size:20px}
+  .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#CFC8E6;border:1px solid #4c4470;border-radius:999px;padding:3px 11px}
+  h1{font-family:var(--font-head);font-weight:600;font-size:clamp(27px,5.5vw,40px);line-height:1.08;margin:0 0 10px}
+  h1 em{font-style:italic;color:#C9B8FF}
+  .lede{color:#D8D2EA;font-size:15px;max-width:56ch;margin:0 0 20px}
+  .specs{display:flex;flex-wrap:wrap;gap:8px}
+  .spec{font-size:12px;background:rgba(255,255,255,.06);border:1px solid #443c66;border-radius:8px;padding:7px 11px}
+  .spec b{color:#C9B8FF;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:10px;margin-right:7px}
+  section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin:18px 0;opacity:0;animation:rise .5s ease forwards}
+  section:nth-of-type(1){animation-delay:.04s} section:nth-of-type(2){animation-delay:.10s}
+  section:nth-of-type(3){animation-delay:.16s} section:nth-of-type(4){animation-delay:.22s}
+  section:nth-of-type(5){animation-delay:.28s} section:nth-of-type(6){animation-delay:.34s}
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  @media(prefers-reduced-motion:no-preference){section{transform:translateY(8px)}}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .num{font-size:12px;font-weight:600;color:var(--brand-deep);background:var(--brand-soft);border-radius:7px;width:30px;height:30px;display:grid;place-items:center;flex:none}
+  .sec-head h2{font-family:var(--font-head);font-weight:600;font-size:19px;margin:0}
+  .sec-note{font-size:13px;color:var(--ink-3);margin:0 0 16px 42px}
+  .lbl{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);font-weight:600;margin-bottom:5px}
+  .req{color:var(--brand)}
+  input,textarea,select{font-family:var(--font-body);font-size:15px;color:var(--ink);width:100%;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px;transition:border-color .15s,box-shadow .15s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft);background:var(--surface)}
+  input.invalid,textarea.invalid,select.invalid{border-color:var(--err);box-shadow:0 0 0 3px #fde8e8}
+  textarea{min-height:78px;resize:vertical}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px} .mt{margin-top:14px}
+  .picks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pick{border:1px solid var(--line);border-radius:9px;padding:12px 13px;cursor:pointer;display:flex;gap:10px;align-items:center;transition:border-color .15s,background .15s}
+  .pick:hover{border-color:var(--ink-3)}
+  .pick.sel{border-color:var(--brand);background:var(--brand-soft)}
+  .pick input{width:auto;accent-color:var(--brand)}
+  .pick span{font-weight:500;font-size:14px}
+  .bar{position:sticky;bottom:0;background:var(--band);color:#fff;border-top:3px solid var(--brand)}
+  .bar-inner{max-width:820px;margin:0 auto;padding:13px 18px;display:flex;align-items:center;gap:14px}
+  .bar .blbl{font-size:13px;color:#CFC8E6}
+  .bar .cta{margin-left:auto;font-family:var(--font-head);font-weight:600;font-size:15px;background:var(--brand);color:#fff;border:none;border-radius:8px;padding:11px 22px;cursor:pointer;transition:background .15s}
+  .bar .cta:hover{background:#7d60e6}
+  #errors{display:none;background:#fde8e8;border:1px solid #f5b5b5;border-radius:9px;padding:13px 16px;margin:18px 0;font-size:13.5px;color:#7f1d1d}
+  #errors.on{display:block} #errors ul{margin:7px 0 0;padding-left:18px}
+  #review{display:none} #review.on{display:block}
+  .summary{font-family:var(--font-body);font-size:13.5px;white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:16px;line-height:1.6;max-height:340px;overflow:auto}
+  .review-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .btn{font-family:var(--font-head);font-weight:600;font-size:14px;border-radius:8px;padding:11px 18px;cursor:pointer;border:1px solid var(--ink);background:var(--surface);color:var(--ink);transition:.15s}
+  .btn:hover{background:var(--ink);color:#fff}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff} .btn.primary:hover{background:var(--brand-deep)}
+  .saved-note{font-size:12px;color:var(--ink-3);margin-top:12px}
+  .footnote{text-align:center;color:var(--ink-3);font-size:12px;margin-top:22px}
+  @media(max-width:620px){ .grid2,.picks{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="grid-bg"></div>
+  <div class="head-inner">
+    <div class="brandline"><span class="brand" id="brandName">OnTalent</span><span class="kicker">Pathways · Robotics · Coaches</span></div>
+    <h1>Start or grow your <em>FLL / FTC team</em></h1>
+    <p class="lede">OnTalent helps schools and coaches launch and build FIRST robotics teams — registration, funding, equipment, coach training, and mentors. Tell us where you are and what you need most, and we'll help you take the next step.</p>
+    <div class="specs">
+      <div class="spec"><b>Programs</b>FLL Explore/Challenge &amp; FTC</div>
+      <div class="spec"><b>For</b>Schools &amp; coaches</div>
+      <div class="spec"><b>Support</b>Mentors · grants · equipment</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+  <div id="errors"><strong>Please fix the following:</strong><ul id="errorList"></ul></div>
+
+  <section>
+    <div class="sec-head"><span class="num">01</span><h2>About you</h2></div>
+    <div class="grid2">
+      <div><label class="lbl" for="name">Full name <span class="req">*</span></label><input id="name" type="text" placeholder="Your name"></div>
+      <div><label class="lbl" for="role">Your role <span class="req">*</span></label>
+        <select id="role"><option value="">Select…</option><option>Teacher / educator</option><option>School staff / administrator</option><option>Parent volunteer coach</option><option>Community / club coach</option><option>Other</option></select>
+      </div>
+    </div>
+    <div class="grid2 mt">
+      <div><label class="lbl" for="email">Email <span class="req">*</span></label><input id="email" type="email" placeholder="you@example.com"></div>
+      <div><label class="lbl" for="phone">Phone</label><input id="phone" type="tel" placeholder="Optional"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">02</span><h2>Your school</h2></div>
+    <div class="grid2">
+      <div><label class="lbl" for="school">School / organization <span class="req">*</span></label><input id="school" type="text" placeholder="School name"></div>
+      <div><label class="lbl" for="schoolType">School type</label>
+        <select id="schoolType"><option value="">Select…</option><option>Public</option><option>Catholic / separate</option><option>Private / independent</option><option>Homeschool group</option><option>Other</option></select>
+      </div>
+    </div>
+    <div class="grid2 mt">
+      <div><label class="lbl" for="city">City <span class="req">*</span></label><input id="city" type="text" placeholder="City"></div>
+      <div><label class="lbl" for="board">School board / district</label><input id="board" type="text" placeholder="Optional"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">03</span><h2>Where you are</h2></div>
+    <div class="grid2">
+      <div><label class="lbl" for="stage">Current stage</label>
+        <select id="stage"><option value="">Select…</option><option>Brand new — no team yet</option><option>Have a team, want to improve</option><option>Had a team before, restarting</option><option>Just exploring</option></select>
+      </div>
+      <div><label class="lbl" for="workshop">Done an OnTalent workshop?</label>
+        <select id="workshop"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not yet — interested</option></select>
+      </div>
+    </div>
+    <label class="lbl mt">Which program(s)? <span class="req">*</span></label>
+    <div class="picks" id="programs">
+      <label class="pick"><input type="checkbox" value="FLL Explore"><span>FLL Explore (younger)</span></label>
+      <label class="pick"><input type="checkbox" value="FLL Challenge"><span>FLL Challenge</span></label>
+      <label class="pick"><input type="checkbox" value="FTC"><span>FTC (FIRST Tech Challenge)</span></label>
+      <label class="pick"><input type="checkbox" value="Not sure yet"><span>Not sure yet</span></label>
+    </div>
+    <div class="grid2 mt">
+      <div><label class="lbl" for="grades">Grade level(s)</label>
+        <select id="grades"><option value="">Select…</option><option>Grades 2–4</option><option>Grades 4–8</option><option>Grades 7–12</option><option>Mixed / multiple</option></select>
+      </div>
+      <div><label class="lbl" for="students">Estimated # of students</label><input id="students" type="text" placeholder="e.g. 8, or 'not sure yet'"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">04</span><h2>Your coaching setup</h2></div>
+    <div class="grid2">
+      <div><label class="lbl" for="coachExp">Coach's robotics experience</label>
+        <select id="coachExp"><option value="">Select…</option><option>New to this</option><option>Some experience</option><option>Experienced</option></select>
+      </div>
+      <div><label class="lbl" for="mentors">Mentors / volunteers lined up?</label>
+        <select id="mentors"><option value="">Select…</option><option>Yes</option><option>A few</option><option>None yet</option></select>
+      </div>
+    </div>
+    <div class="mt"><label class="lbl" for="space">Meeting space available?</label>
+      <select id="space"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not sure</option></select>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">05</span><h2>What you need most</h2></div>
+    <div class="sec-note">Check everything you'd like help with — this is how we'll tailor support.</div>
+    <label class="lbl">We could use help with <span class="req">*</span></label>
+    <div class="picks" id="needs">
+      <label class="pick"><input type="checkbox" value="Registering with FIRST Canada"><span>Registering with FIRST Canada</span></label>
+      <label class="pick"><input type="checkbox" value="Funding & grants"><span>Funding &amp; grants</span></label>
+      <label class="pick"><input type="checkbox" value="Equipment & kits"><span>Equipment &amp; kits</span></label>
+      <label class="pick"><input type="checkbox" value="Coach training"><span>Coach training</span></label>
+      <label class="pick"><input type="checkbox" value="A mentor for our team"><span>A mentor for our team</span></label>
+      <label class="pick"><input type="checkbox" value="Season curriculum & cadence"><span>Season curriculum &amp; cadence</span></label>
+      <label class="pick"><input type="checkbox" value="Competition prep"><span>Competition prep</span></label>
+      <label class="pick"><input type="checkbox" value="Fundraising & sustainability"><span>Fundraising &amp; sustainability</span></label>
+    </div>
+    <div class="mt"><label class="lbl" for="detail">Tell us more about what you're hoping for</label><textarea id="detail" placeholder="A few sentences about your goals and where you'd most like a hand."></textarea></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="num">06</span><h2>Funding &amp; timeline</h2></div>
+    <div class="grid2">
+      <div><label class="lbl" for="funding">Funding</label>
+        <select id="funding"><option value="">Select…</option><option>Our school can fund it</option><option>We'd like cost information</option><option>Hoping for grants or sponsorship</option><option>Not sure yet</option></select>
+      </div>
+      <div><label class="lbl" for="timeline">When hoping to start?</label><input id="timeline" type="text" placeholder="e.g. this season, or a target month"></div>
+    </div>
+    <div class="mt"><label class="lbl" for="notes">Anything else?</label><textarea id="notes" placeholder="Optional notes."></textarea></div>
+  </section>
+
+  <div id="review">
+    <section>
+      <div class="sec-head"><span class="num">✓</span><h2>Review &amp; submit</h2></div>
+      <div class="summary" id="summaryBox"></div>
+      <div class="review-actions" id="reviewActions">
+        <button class="btn primary" id="submitBtn">Submit request</button>
+        <button class="btn" id="editBtn">Keep editing</button>
+        <button class="btn" id="emailBtn">Email instead</button>
+        <button class="btn" id="copyBtn">Copy summary</button>
+      </div>
+      <div id="confirmBox" style="display:none"></div>
+      <p class="saved-note" id="copyStatus"></p>
+    </section>
+  </div>
+
+  <p class="footnote">Reviewed by OnTalent · we'll follow up to help you take the next step · mentors are vetted and work under school supervision</p>
+</div>
+
+<div class="bar"><div class="bar-inner">
+  <span class="blbl">Building an FLL/FTC team with OnTalent</span>
+  <button class="cta" id="reviewBtn">Review request →</button>
+</div></div>
+
+<script>
+  /* ===== OnTalent — edit these settings ===== */
+  const CONFIG = {
+    organizationName: "OnTalent",
+    organizerEmail: "info@ontalent.org",
+    submitEndpoint: ""   // <-- paste the SAME Apps Script URL used by the other forms
+  };
+  /* ========================================= */
+
+  const $ = id => document.getElementById(id);
+  $('brandName').textContent = CONFIG.organizationName;
+
+  document.querySelectorAll('.pick input').forEach(cb => {
+    cb.onchange = () => cb.closest('.pick').classList.toggle('sel', cb.checked);
+  });
+  const picked = containerId => Array.from(document.querySelectorAll('#' + containerId + ' input:checked')).map(cb => cb.value);
+
+  function validate(){
+    const errors = [];
+    document.querySelectorAll('.invalid').forEach(e => e.classList.remove('invalid'));
+    const need = (id, msg) => { if(!$(id).value.trim()){ errors.push(msg); $(id).classList.add('invalid'); } };
+    need('name', 'Enter your name.');
+    if(!$('role').value){ errors.push('Select your role.'); $('role').classList.add('invalid'); }
+    const email = $('email');
+    if(!email.value.trim()){ errors.push('Enter your email.'); email.classList.add('invalid'); }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){ errors.push('Enter a valid email.'); email.classList.add('invalid'); }
+    need('school', 'Enter your school name.');
+    need('city', 'Enter your city.');
+    if(picked('programs').length === 0){ errors.push('Select at least one program (or "Not sure yet").'); }
+    if(picked('needs').length === 0){ errors.push('Check at least one thing you\u2019d like help with.'); }
+    return errors;
+  }
+
+  function buildSummary(){
+    let o = 'ONTALENT — FLL/FTC TEAM SUPPORT REQUEST\n';
+    o += 'Submitted: ' + new Date().toLocaleString() + '\n';
+    o += '──────────────────────────────\n';
+    o += 'COACH\n  ' + $('name').value.trim() + ' — ' + $('role').value + '\n  ' + $('email').value.trim() + ($('phone').value.trim() ? ' · ' + $('phone').value.trim() : '') + '\n';
+    o += '\nSCHOOL\n  ' + $('school').value.trim() + ($('schoolType').value ? ' (' + $('schoolType').value + ')' : '') + '\n  ' + $('city').value.trim() + ($('board').value.trim() ? ' · ' + $('board').value.trim() : '') + '\n';
+    o += '\nWHERE THEY ARE\n';
+    if($('stage').value)    o += '  Stage: ' + $('stage').value + '\n';
+    o += '  Program(s): ' + picked('programs').join(', ') + '\n';
+    if($('grades').value)   o += '  Grades: ' + $('grades').value + '\n';
+    if($('students').value.trim()) o += '  Students: ' + $('students').value.trim() + '\n';
+    if($('workshop').value) o += '  Did OnTalent workshop: ' + $('workshop').value + '\n';
+    o += '\nCOACHING SETUP\n';
+    if($('coachExp').value) o += '  Coach experience: ' + $('coachExp').value + '\n';
+    if($('mentors').value)  o += '  Mentors lined up: ' + $('mentors').value + '\n';
+    if($('space').value)    o += '  Meeting space: ' + $('space').value + '\n';
+    o += '\nNEEDS HELP WITH\n  ' + picked('needs').join(', ') + '\n';
+    if($('detail').value.trim()) o += '\nDETAIL\n  ' + $('detail').value.trim() + '\n';
+    if($('funding').value)  o += '\nFunding: ' + $('funding').value + '\n';
+    if($('timeline').value.trim()) o += 'Timeline: ' + $('timeline').value.trim() + '\n';
+    if($('notes').value.trim())    o += 'Notes: ' + $('notes').value.trim() + '\n';
+    return o;
+  }
+
+  function buildPayload(){
+    return {
+      type: 'team', submittedAt: new Date().toISOString(), org: CONFIG.organizationName,
+      name: $('name').value.trim(), role: $('role').value, email: $('email').value.trim(), phone: $('phone').value.trim(),
+      school: $('school').value.trim(), schoolType: $('schoolType').value, city: $('city').value.trim(), board: $('board').value.trim(),
+      stage: $('stage').value, programs: picked('programs').join(', '), grades: $('grades').value,
+      students: $('students').value.trim(), didWorkshop: $('workshop').value,
+      coachExp: $('coachExp').value, mentors: $('mentors').value, space: $('space').value,
+      needs: picked('needs').join(', '), detail: $('detail').value.trim(),
+      funding: $('funding').value, timeline: $('timeline').value.trim(), notes: $('notes').value.trim(),
+      summary: buildSummary(), company: $('company').value
+    };
+  }
+
+  function showConfirmation(){
+    $('reviewActions').style.display = 'none';
+    const ftc = picked('programs').indexOf('FTC') > -1;
+    $('confirmBox').style.display = 'block';
+    $('confirmBox').innerHTML = '<div style="background:var(--brand-soft);border-left:3px solid var(--brand);border-radius:0 8px 8px 0;padding:16px 18px">'
+      + '<div style="font-family:var(--font-head);font-weight:600;font-size:18px;color:var(--brand-deep);margin-bottom:6px">✓ Request received</div>'
+      + '<div style="font-size:14px;color:var(--brand-deep)">Thanks, ' + ($('name').value.trim() || 'there') + '. OnTalent will review where you are and follow up to help you take the next step.'
+      + (ftc ? ' Since you\u2019re looking at FTC, you can also use our goBILDA group order to source parts once you\u2019re set up.' : '') + '</div></div>';
+    $('copyStatus').textContent = '';
+  }
+
+  async function submitRequest(){
+    if($('company').value){ showConfirmation(); return; }
+    if(!CONFIG.submitEndpoint){ $('emailBtn').click(); return; }
+    const btn = $('submitBtn'); btn.disabled = true; btn.textContent = 'Submitting…';
+    try{
+      await fetch(CONFIG.submitEndpoint, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(buildPayload()) });
+      showConfirmation();
+    }catch(err){
+      btn.disabled = false; btn.textContent = 'Submit request';
+      $('copyStatus').textContent = 'Could not submit automatically — use “Email instead” or “Copy summary” to send your request.';
+    }
+  }
+
+  $('reviewBtn').onclick = () => {
+    const errors = validate(); const box = $('errors');
+    if(errors.length){ $('errorList').innerHTML = errors.map(e => '<li>' + e + '</li>').join(''); box.classList.add('on'); box.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+    box.classList.remove('on');
+    $('summaryBox').textContent = buildSummary();
+    const hasEndpoint = !!CONFIG.submitEndpoint;
+    $('submitBtn').style.display = hasEndpoint ? '' : 'none';
+    $('copyStatus').textContent = hasEndpoint ? '' : 'Online submission isn\u2019t set up yet — use Email or Copy to send your request to OnTalent.';
+    $('review').classList.add('on'); $('review').scrollIntoView({behavior:'smooth', block:'start'});
+  };
+  $('editBtn').onclick = () => {
+    $('review').classList.remove('on'); $('reviewActions').style.display = 'flex'; $('confirmBox').style.display = 'none';
+    const sb = $('submitBtn'); sb.disabled = false; sb.textContent = 'Submit request'; window.scrollTo({top:0, behavior:'smooth'});
+  };
+  $('copyBtn').onclick = () => { navigator.clipboard.writeText($('summaryBox').textContent).then(
+    () => { $('copyStatus').textContent = '✓ Copied — paste it into an email to OnTalent.'; },
+    () => { $('copyStatus').textContent = 'Could not auto-copy — select the text above and copy manually.'; }); };
+  $('emailBtn').onclick = () => {
+    const subject = 'OnTalent FLL/FTC team support — ' + ($('school').value.trim() || $('name').value.trim() || 'request');
+    window.location.href = 'mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent($('summaryBox').textContent);
+  };
+  $('submitBtn').onclick = submitRequest;
+</script>
+</body>
+</html>
