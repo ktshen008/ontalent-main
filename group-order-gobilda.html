@@ -339,7 +339,10 @@
     return out;
   }
 
+  let goReviewed = false;
   $('go-reviewBtn').onclick = () => {
+    // After a successful review, the sticky bar button acts as the Submit button.
+    if (goReviewed && CONFIG.submitEndpoint) { submitOrder(); return; }
     const errors = validate();
     const box = $('go-errors');
     if(errors.length){
@@ -355,6 +358,8 @@
     $('go-copyStatus').textContent = hasEndpoint ? '' : 'Online submission isn’t set up yet — use Email or Copy to send your order to OnTalent.';
     $('go-review').classList.add('is-on');
     $('go-review').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    goReviewed = true;
+    if (hasEndpoint) { $('go-reviewBtn').textContent = 'Submit order ↦'; }
   };
 
   $('go-editBtn').onclick = () => {
@@ -362,6 +367,8 @@
     $('go-reviewActions').style.display = 'flex';
     $('go-confirmBox').style.display = 'none';
     const sb = $('go-submitBtn'); sb.disabled = false; sb.textContent = 'Submit order to OnTalent';
+    goReviewed = false;
+    const rb = $('go-reviewBtn'); rb.disabled = false; rb.textContent = 'Review order →';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -417,13 +424,16 @@
       + '<div>Thanks, ' + ($('go-name').value.trim() || 'there')
       + '. OnTalent has your order. Nothing is charged yet — payment is collected once the order is confirmed at the cutoff (' + CONFIG.deadline + '). A copy is shown above for your records.</div></div>';
     $('go-copyStatus').textContent = '';
+    const rb = $('go-reviewBtn'); rb.disabled = true; rb.textContent = 'Submitted ✓';
   }
 
   async function submitOrder(){
     if ($('go-company').value) { showConfirmation(); return; } // honeypot tripped
     if (!CONFIG.submitEndpoint) { $('go-emailBtn').click(); return; }
     const btn = $('go-submitBtn');
+    const rb = $('go-reviewBtn');
     btn.disabled = true; btn.textContent = 'Submitting…';
+    rb.disabled = true; rb.textContent = 'Submitting…';
     try{
       await fetch(CONFIG.submitEndpoint, {
         method: 'POST', mode: 'no-cors',
@@ -433,6 +443,7 @@
       showConfirmation();
     }catch(err){
       btn.disabled = false; btn.textContent = 'Submit order to OnTalent';
+      rb.disabled = false; rb.textContent = 'Submit order ↦';
       $('go-copyStatus').textContent = 'Could not submit automatically — use “Email instead” or “Copy summary” to send your order.';
     }
   }
