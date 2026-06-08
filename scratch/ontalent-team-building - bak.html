@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start or Grow Your Robotics Team — OnTalent</title>
+<title>Start or Grow Your FLL/FTC Team — OnTalent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -76,10 +76,10 @@
   <div class="grid-bg"></div>
   <div class="head-inner">
     <div class="brandline"><span class="brand" id="brandName">OnTalent</span><span class="kicker">Pathways · Robotics · Coaches</span></div>
-    <h1>Start or grow your <em>robotics team</em></h1>
+    <h1>Start or grow your <em>FLL / FTC team</em></h1>
     <p class="lede">OnTalent helps schools and coaches launch and build FIRST robotics teams — registration, funding, equipment, coach training, and mentors. Tell us where you are and what you need most, and we'll help you take the next step.</p>
     <div class="specs">
-      <div class="spec"><b>Programs</b>FLL, FTC &amp; FRC</div>
+      <div class="spec"><b>Programs</b>FLL Explore/Challenge &amp; FTC</div>
       <div class="spec"><b>For</b>Schools &amp; coaches</div>
       <div class="spec"><b>Support</b>Mentors · grants · equipment</div>
     </div>
@@ -130,14 +130,14 @@
     </div>
     <label class="lbl mt">Which program(s)? <span class="req">*</span></label>
     <div class="picks" id="programs">
+      <label class="pick"><input type="checkbox" value="FLL Explore"><span>FLL Explore (younger)</span></label>
       <label class="pick"><input type="checkbox" value="FLL Challenge"><span>FLL Challenge</span></label>
       <label class="pick"><input type="checkbox" value="FTC"><span>FTC (FIRST Tech Challenge)</span></label>
-      <label class="pick"><input type="checkbox" value="FRC"><span>FRC (FIRST Robotics Competition)</span></label>
       <label class="pick"><input type="checkbox" value="Not sure yet"><span>Not sure yet</span></label>
     </div>
     <div class="grid2 mt">
       <div><label class="lbl" for="grades">Grade level(s)</label>
-        <select id="grades"><option value="">Select…</option><option>Grades 2–4</option><option>Grades 4–8</option><option>Grades 7–12</option><option>Grades 9–12</option><option>Mixed / multiple</option></select>
+        <select id="grades"><option value="">Select…</option><option>Grades 2–4</option><option>Grades 4–8</option><option>Grades 7–12</option><option>Mixed / multiple</option></select>
       </div>
       <div><label class="lbl" for="students">Estimated # of students</label><input id="students" type="text" placeholder="e.g. 8, or 'not sure yet'"></div>
     </div>
@@ -205,7 +205,7 @@
 </div>
 
 <div class="bar"><div class="bar-inner">
-  <span class="blbl">Building a robotics team with OnTalent</span>
+  <span class="blbl">Building an FLL/FTC team with OnTalent</span>
   <button class="cta" id="reviewBtn">Review request →</button>
 </div></div>
 
@@ -243,7 +243,7 @@
   }
 
   function buildSummary(){
-    let o = 'ONTALENT — ROBOTICS TEAM SUPPORT REQUEST\n';
+    let o = 'ONTALENT — FLL/FTC TEAM SUPPORT REQUEST\n';
     o += 'Submitted: ' + new Date().toLocaleString() + '\n';
     o += '──────────────────────────────\n';
     o += 'COACH\n  ' + $('name').value.trim() + ' — ' + $('role').value + '\n  ' + $('email').value.trim() + ($('phone').value.trim() ? ' · ' + $('phone').value.trim() : '') + '\n';
@@ -322,7 +322,7 @@
     () => { $('copyStatus').textContent = '✓ Copied — paste it into an email to OnTalent.'; },
     () => { $('copyStatus').textContent = 'Could not auto-copy — select the text above and copy manually.'; }); };
   $('emailBtn').onclick = () => {
-    const subject = 'OnTalent robotics team support — ' + ($('school').value.trim() || $('name').value.trim() || 'request');
+    const subject = 'OnTalent FLL/FTC team support — ' + ($('school').value.trim() || $('name').value.trim() || 'request');
     window.location.href = 'mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent($('summaryBox').textContent);
   };
   $('submitBtn').onclick = submitRequest;

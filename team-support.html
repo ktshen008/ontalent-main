@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="OnTalent helps schools and coaches start or grow FLL/FTC robotics teams — registration, funding, equipment, coach training, and mentors. Tell us what you need.">
-  <meta property="og:title" content="Start or Grow Your FLL/FTC Team | OnTalent">
-  <meta property="og:description" content="Needs-based support to launch and build FIRST robotics teams — mentors, grants, equipment, coach training.">
+  <meta name="description" content="OnTalent supports schools and coaches with FIRST robotics teams — FLL, FTC, and FRC — through workshops, mentor connection, equipment planning, coach training, and season prep.">
+  <meta property="og:title" content="Start or Grow Your Robotics Team | OnTalent">
+  <meta property="og:description" content="Needs-based support for FLL, FTC, and FRC robotics teams — mentors, grants, equipment, coach training, and season prep.">
   <meta property="og:image" content="https://ktshen008.github.io/ontalent-main/social-preview.png">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#2b214a">
@@ -17,7 +17,7 @@
   <link rel="manifest" href="./site.webmanifest">
   <link rel="stylesheet" href="./styles.css?v=20260607">
   <script>document.documentElement.classList.add('js');</script>
-  <title>Start or Grow Your FLL/FTC Team | OnTalent</title>
+  <title>Start or Grow Your Robotics Team | OnTalent</title>
 </head>
 <body>
 <header class="site-header">
@@ -42,10 +42,10 @@
 <section class="page-hero">
   <div class="page-hero__inner">
     <span class="page-hero__tag" data-reveal>Pathways · Robotics · Coaches</span>
-    <h1 class="page-hero__title" data-reveal data-delay="1">Start or grow your <em>FLL / FTC team</em></h1>
-    <p class="page-hero__lede" data-reveal data-delay="1">OnTalent helps schools and coaches launch and build FIRST robotics teams — registration, funding, equipment, coach training, and mentors. Tell us where you are and what you need most, and we'll help you take the next step.</p>
+    <h1 class="page-hero__title" data-reveal data-delay="1">Start or grow your <em>robotics team</em></h1>
+    <p class="page-hero__lede" data-reveal data-delay="1">OnTalent supports schools, coaches, and community groups with FIRST robotics teams — FLL, FTC, and FRC — through workshops, mentor connection, equipment planning, coach training, and season prep. (OnTalent also runs its own FLL and FTC student programs.)</p>
     <div class="go-specs" data-reveal data-delay="2">
-      <div class="go-spec"><b>Programs</b><span>FLL Explore/Challenge &amp; FTC</span></div>
+      <div class="go-spec"><b>Programs</b><span>FLL, FTC &amp; FRC</span></div>
       <div class="go-spec"><b>For</b><span>Schools &amp; coaches</span></div>
       <div class="go-spec"><b>Support</b><span>Mentors · grants · equipment</span></div>
     </div>
@@ -100,9 +100,9 @@
       </div>
       <label class="go-lbl" style="margin-top:16px">Which program(s)? <span class="go-req">*</span></label>
       <div class="go-picks" id="programs">
-        <label class="go-pick"><input type="checkbox" value="FLL Explore"><span>FLL Explore (younger)</span></label>
         <label class="go-pick"><input type="checkbox" value="FLL Challenge"><span>FLL Challenge</span></label>
         <label class="go-pick"><input type="checkbox" value="FTC"><span>FTC (FIRST Tech Challenge)</span></label>
+        <label class="go-pick"><input type="checkbox" value="FRC"><span>FRC (FIRST Robotics Competition)</span></label>
         <label class="go-pick"><input type="checkbox" value="Not sure yet"><span>Not sure yet</span></label>
       </div>
       <div class="go-grid2" style="margin-top:16px">
@@ -157,6 +157,8 @@
       <div class="form-field" style="margin-top:16px"><label class="go-lbl" for="notes">Anything else?</label><textarea class="form-input" id="notes" placeholder="Optional notes."></textarea></div>
     </div>
 
+    <p class="note" style="border-left:3px solid var(--brand); padding:10px 0 10px 14px; margin-top:4px">OnTalent may provide guidance, workshops, mentor connection, parts-planning support, or community coordination depending on capacity. Schools and teams remain responsible for official team registration, student supervision, safety, and competition compliance.</p>
+
     <div id="go-review">
       <div class="card go-card">
         <div class="go-sec-head"><span class="go-num">✓</span><h2>Review &amp; submit</h2></div>
@@ -173,12 +175,13 @@
     </div>
 
     <p class="note center mt-2">Reviewed by OnTalent · we'll follow up to help you take the next step · mentors are vetted and work under school supervision.</p>
+    <p class="note center mt-2">FIRST®, FIRST® LEGO® League, FIRST® Tech Challenge, and FIRST® Robotics Competition are trademarks of For Inspiration and Recognition of Science and Technology (FIRST). OnTalent references these programs for educational and team-support purposes.</p>
   </div>
 </section>
 
 <div class="go-bar">
   <div class="go-bar-inner">
-    <span class="go-blbl">Building an FLL/FTC team with OnTalent</span>
+    <span class="go-blbl">Building a robotics team with OnTalent</span>
     <button class="btn btn--primary" id="reviewBtn" type="button">Review request →</button>
   </div>
 </div>
@@ -213,7 +216,7 @@
         <li><a href="./join.html#mentors-volunteers">Mentors &amp; Volunteers</a></li>
         <li><a href="./join-sponsors-supporters.html">Support Us</a></li>
         <li><a href="./workshop-application.html">School Workshops</a></li>
-        <li><a href="./team-support.html">FLL/FTC Team Support</a></li>
+        <li><a href="./team-support.html">Team Support</a></li>
         <li><a href="./group-order-gobilda.html">goBILDA Group Order</a></li>
       </ul>
     </div>
@@ -268,7 +271,7 @@
   }
 
   function buildSummary(){
-    let o = 'ONTALENT — FLL/FTC TEAM SUPPORT REQUEST\n';
+    let o = 'ONTALENT — ROBOTICS TEAM SUPPORT REQUEST\n';
     o += 'Submitted: ' + new Date().toLocaleString() + '\n';
     o += '──────────────────────────────\n';
     o += 'COACH\n  ' + $('name').value.trim() + ' — ' + $('role').value + '\n  ' + $('email').value.trim() + ($('phone').value.trim() ? ' · ' + $('phone').value.trim() : '') + '\n';
@@ -359,7 +362,7 @@
     () => { $('copyStatus').textContent = '✓ Copied — paste it into an email to OnTalent.'; },
     () => { $('copyStatus').textContent = 'Could not auto-copy — select the text above and copy manually.'; }); };
   $('emailBtn').onclick = () => {
-    const subject = 'OnTalent FLL/FTC team support — ' + ($('school').value.trim() || $('name').value.trim() || 'request');
+    const subject = 'OnTalent robotics team support — ' + ($('school').value.trim() || $('name').value.trim() || 'request');
     const body = $('summaryBox').textContent;
     if (navigator.clipboard) { navigator.clipboard.writeText(body).catch(function(){}); }
     window.open('mailto:' + CONFIG.organizerEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body), '_blank');
